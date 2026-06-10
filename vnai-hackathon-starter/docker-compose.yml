@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  web:
+    image: node:18
+    container_name: vnai_web
+    working_dir: /app
+    volumes:
+      - ./apps/web:/app
+    command: npm run dev
+  api:
+    image: python:3.11
+    container_name: vnai_api
+    working_dir: /app
+    volumes:
+      - ./apps/api:/app
+    command: pytest --maxfail=1 --disable-warnings -q
