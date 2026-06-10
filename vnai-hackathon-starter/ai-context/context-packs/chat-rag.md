@@ -8,9 +8,9 @@ Preparation goal: define the module clearly before implementation. No backend or
 
 ## 2. Owner
 
-Owner: TBD
+Owner: Lư Hồng Phúc
 
-Support: Backend/API, AI/RAG, Frontend/UI, Product/Demo
+Support: Nguyễn Hữu Tri, Nguyễn Tuấn Tài, Lê Thanh Phát
 
 ## 3. Related Files
 
@@ -163,4 +163,3 @@ Return answer, sources, and actions.
 Do not modify upload or frontend files.
 Add clear error handling for empty message.
 ```
-

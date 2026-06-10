@@ -16,6 +16,13 @@ AI tools có thể:
 
 Vì vậy team dùng context packs và contracts trước khi prompt.
 
+For codebase context workflow, read:
+
+* [tools/codebase-context-workflow.md](tools/codebase-context-workflow.md)
+* [tools/codegraph-guide.md](tools/codegraph-guide.md)
+* [tools/gitnexus-guide.md](tools/gitnexus-guide.md)
+* [tools/repomix-guide.md](tools/repomix-guide.md)
+
 ---
 
 ## 2. Required context before prompting AI
@@ -217,6 +224,12 @@ Do not use for:
 * Storing secrets.
 * Replacing manual review.
 
+Detailed rules:
+
+* GitNexus: [tools/gitnexus-guide.md](tools/gitnexus-guide.md)
+* CodeGraph: [tools/codegraph-guide.md](tools/codegraph-guide.md)
+* Repomix: [tools/repomix-guide.md](tools/repomix-guide.md)
+
 ---
 
 ## 10. What AI must not do
@@ -227,4 +240,3 @@ Do not use for:
 * Do not silently change API contracts.
 * Do not remove fallback/demo safety.
 * Do not claim features are implemented when they are only planned.
-

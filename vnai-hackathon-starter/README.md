@@ -79,9 +79,12 @@ Thứ tự đề xuất:
 2. Đọc [docs/team-onboarding-guide.md](docs/team-onboarding-guide.md).
 3. Đọc [docs/tool-stack-decision.md](docs/tool-stack-decision.md).
 4. Đọc [docs/preparation-roadmap.md](docs/preparation-roadmap.md).
-5. Đọc [ai-context/MODULE_MAP.md](ai-context/MODULE_MAP.md).
-6. Chọn một module và đọc context pack tương ứng trong `ai-context/context-packs/`.
-7. Viết module contract bằng [docs/module-contract-template.md](docs/module-contract-template.md).
+5. Đọc [docs/team-role-assignment.md](docs/team-role-assignment.md).
+6. Đọc [docs/definition-of-done.md](docs/definition-of-done.md).
+7. Đọc [ai-context/MODULE_MAP.md](ai-context/MODULE_MAP.md).
+8. Đọc [docs/tools/codebase-context-workflow.md](docs/tools/codebase-context-workflow.md).
+9. Chọn một module và đọc context pack tương ứng trong `ai-context/context-packs/`.
+10. Viết module contract bằng [docs/module-contract-template.md](docs/module-contract-template.md).
 
 ---
 
@@ -118,6 +121,13 @@ Prompt phải có:
 * Testing checklist
 
 Workflow chi tiết ở [docs/ai-coding-workflow.md](docs/ai-coding-workflow.md).
+
+For codebase context workflow, read:
+
+* [docs/tools/codebase-context-workflow.md](docs/tools/codebase-context-workflow.md)
+* [docs/tools/codegraph-guide.md](docs/tools/codegraph-guide.md)
+* [docs/tools/gitnexus-guide.md](docs/tools/gitnexus-guide.md)
+* [docs/tools/repomix-guide.md](docs/tools/repomix-guide.md)
 
 ### Demo stability quan trọng hơn kiến trúc đẹp
 
@@ -173,4 +183,3 @@ Team cần hoàn thành trước khi code:
 * Demo safety checklist đã thống nhất.
 
 Chỉ sau đó mới scaffold Next.js/FastAPI.
-

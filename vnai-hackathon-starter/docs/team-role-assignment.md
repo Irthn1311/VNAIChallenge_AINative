@@ -1,6 +1,6 @@
 # Team Role Assignment
 
-Tài liệu này giúp team phân vai trước khi bắt đầu code thật. Hiện tại tất cả owner vẫn để `TBD` cho đến khi team leader họp và chốt tên thành viên.
+Tài liệu này giúp team phân vai trước khi bắt đầu code thật. Các tên dưới đây là role ownership chính thức cho phase chuẩn bị và onboarding.
 
 ---
 
@@ -14,7 +14,7 @@ Phân vai giúp team:
 - Có backup nếu một thành viên bị kẹt.
 - Handoff rõ giữa Product, Frontend, Backend và AI.
 
-Vai trò không có nghĩa là chỉ được làm đúng một việc. Trong hackathon, mỗi người vẫn có thể hỗ trợ nhau, nhưng mỗi phần phải có một người chịu trách nhiệm cuối.
+Vai trò là ownership role, không phải ranh giới cứng. Thành viên có thể hỗ trợ nhau, nhưng mỗi area phải có một owner rõ để tránh lệch hướng.
 
 ---
 
@@ -22,22 +22,26 @@ Vai trò không có nghĩa là chỉ được làm đúng một việc. Trong ha
 
 | Role | Main focus | Current owner |
 | --- | --- | --- |
-| Role 1 | Technical Lead / Integration Lead | TBD |
-| Role 2 | AI/RAG/CV Lead | TBD |
-| Role 3 | Frontend/Backend Software Developer | TBD |
-| Role 4 | Product Flow / Demo / Pitch Support | TBD |
+| Role 1 | Technical Lead / Integration Lead | Nguyễn Hữu Tri |
+| Role 2 | AI/RAG/CV Lead | Lư Hồng Phúc |
+| Role 3 | Frontend/Backend Software Developer | Nguyễn Tuấn Tài |
+| Role 4 | Product Flow / Demo / Pitch Support | Lê Thanh Phát |
 
 ---
 
 ## 3. Role 1: Technical Lead / Integration Lead
 
+Owner: Nguyễn Hữu Tri
+
 Nhiệm vụ chính:
 
-- Giữ architecture và module boundaries.
-- Kiểm tra API contract trước khi frontend/backend tích hợp.
-- Quyết định cách deploy frontend/backend khi vào implementation phase.
-- Review PR có ảnh hưởng nhiều module.
-- Điều phối merge gần deadline.
+* System architecture.
+* Final integration.
+* API contract direction.
+* Repo structure.
+* AI coding workflow control.
+* Merge/demo stability.
+* Coordination between frontend, backend, AI, and product flow.
 
 Không nên:
 
@@ -49,13 +53,16 @@ Không nên:
 
 ## 4. Role 2: AI/RAG/CV Lead
 
+Owner: Lư Hồng Phúc
+
 Nhiệm vụ chính:
 
-- Thiết kế RAG/CV/OCR flow nếu đề bài cần.
-- Quản lý prompt, eval questions, sample data liên quan AI.
-- Đảm bảo AI output có nguồn, confidence hoặc explanation khi phù hợp.
-- Chuẩn bị fallback cho LLM/vector/OCR lỗi.
-- Review hallucination và unsupported cases.
+* AI/RAG pipeline design.
+* Computer Vision/OCR module if needed.
+* Prompt design support.
+* Model/API choice support.
+* AI evaluation support.
+* AI module context packs.
 
 Không nên:
 
@@ -67,13 +74,15 @@ Không nên:
 
 ## 5. Role 3: Frontend/Backend Software Developer
 
+Owner: Nguyễn Tuấn Tài
+
 Nhiệm vụ chính:
 
-- Build UI/API task theo contract khi vào implementation phase.
-- Đảm bảo loading, empty, error states.
-- Kết nối frontend với backend đúng schema.
-- Viết hoặc hỗ trợ smoke test/manual test.
-- Giữ code đơn giản, đúng scope.
+* Frontend implementation support.
+* Backend/API implementation support.
+* UI integration with API.
+* Software engineering structure.
+* Bug fixing and feature implementation.
 
 Không nên:
 
@@ -85,13 +94,16 @@ Không nên:
 
 ## 6. Role 4: Product Flow / Demo / Pitch Support
 
+Owner: Lê Thanh Phát
+
 Nhiệm vụ chính:
 
-- Viết problem statement, user journey, demo script.
-- Chuẩn bị sample questions, sample data, screenshot/video fallback.
-- Kiểm soát feature freeze, demo freeze, pitch freeze.
-- Làm pitch deck với Canva.
-- Đảm bảo demo kể được câu chuyện rõ ràng.
+* User journey.
+* Product flow.
+* Demo script.
+* Sample data planning.
+* Pitch story support.
+* Testing the product from user perspective.
 
 Không nên:
 
@@ -105,16 +117,16 @@ Không nên:
 
 | Area | Primary role | Support role | Owner now |
 | --- | --- | --- | --- |
-| Architecture | Technical Lead / Integration Lead | Software Developer | TBD |
-| API contract | Technical Lead / Integration Lead | Software Developer, AI/RAG/CV Lead | TBD |
-| Frontend UI | Frontend/Backend Software Developer | Product Flow / Demo | TBD |
-| Backend API | Frontend/Backend Software Developer | Technical Lead / Integration Lead | TBD |
-| Chat RAG | AI/RAG/CV Lead | Backend, Product Flow / Demo | TBD |
-| Upload Document | Frontend/Backend Software Developer | AI/RAG/CV Lead | TBD |
-| CV/OCR | AI/RAG/CV Lead | Software Developer | TBD |
-| Demo script | Product Flow / Demo / Pitch Support | All members | TBD |
-| Pitch deck | Product Flow / Demo / Pitch Support | Technical Lead | TBD |
-| Deployment readiness | Technical Lead / Integration Lead | Software Developer | TBD |
+| Architecture | Technical Lead / Integration Lead | Software Developer | Nguyễn Hữu Tri |
+| API contract | Technical Lead / Integration Lead | Software Developer, AI/RAG/CV Lead | Nguyễn Hữu Tri |
+| Frontend UI | Frontend/Backend Software Developer | Product Flow / Demo | Nguyễn Tuấn Tài |
+| Backend API | Frontend/Backend Software Developer | Technical Lead / Integration Lead | Nguyễn Tuấn Tài |
+| Chat RAG | AI/RAG/CV Lead | Backend, Product Flow / Demo | Lư Hồng Phúc |
+| Upload Document | Frontend/Backend Software Developer | AI/RAG/CV Lead | Nguyễn Tuấn Tài |
+| CV/OCR | AI/RAG/CV Lead | Software Developer | Lư Hồng Phúc |
+| Demo script | Product Flow / Demo / Pitch Support | All members | Lê Thanh Phát |
+| Pitch deck | Product Flow / Demo / Pitch Support | Technical Lead | Lê Thanh Phát |
+| Deployment readiness | Technical Lead / Integration Lead | Software Developer | Nguyễn Hữu Tri |
 
 ---
 
@@ -122,14 +134,14 @@ Không nên:
 
 | Decision type | Final decision owner | Must consult |
 | --- | --- | --- |
-| Module boundary | Technical Lead / Integration Lead | Related module owner |
-| API request/response schema | Technical Lead / Integration Lead | Frontend/Backend, AI Lead |
-| RAG/CV method | AI/RAG/CV Lead | Technical Lead, Product/Demo |
-| UI flow | Product Flow / Demo + Software Developer | Technical Lead |
-| Demo path | Product Flow / Demo / Pitch Support | All members |
-| Feature freeze | Product Flow / Demo + Technical Lead | All members |
-| Deployment choice | Technical Lead / Integration Lead | Software Developer |
-| Remove risky feature | Technical Lead + Product Flow / Demo | Related owner |
+| Module boundary | Nguyễn Hữu Tri | Related module owner |
+| API request/response schema | Nguyễn Hữu Tri | Nguyễn Tuấn Tài, Lư Hồng Phúc |
+| RAG/CV method | Lư Hồng Phúc | Nguyễn Hữu Tri, Lê Thanh Phát |
+| UI flow | Lê Thanh Phát + Nguyễn Tuấn Tài | Nguyễn Hữu Tri |
+| Demo path | Lê Thanh Phát | All members |
+| Feature freeze | Lê Thanh Phát + Nguyễn Hữu Tri | All members |
+| Deployment choice | Nguyễn Hữu Tri | Nguyễn Tuấn Tài |
+| Remove risky feature | Nguyễn Hữu Tri + Lê Thanh Phát | Related owner |
 
 ---
 
@@ -137,10 +149,10 @@ Không nên:
 
 | Primary area | Backup role | Backup responsibility |
 | --- | --- | --- |
-| Technical Lead / Integration | Software Developer | Check integration, API mismatch, deployment notes |
-| AI/RAG/CV | Technical Lead | Validate AI flow, fallback, eval questions |
-| Frontend/Backend | Technical Lead | Review scope, unblock schema/API issue |
-| Product/Demo/Pitch | AI/RAG/CV Lead | Help prepare sample questions and safe AI outputs |
+| Technical Lead / Integration | Nguyễn Tuấn Tài | Check integration, API mismatch, deployment notes |
+| AI/RAG/CV | Nguyễn Hữu Tri | Validate AI flow, fallback, eval questions |
+| Frontend/Backend | Nguyễn Hữu Tri | Review scope, unblock schema/API issue |
+| Product/Demo/Pitch | Lư Hồng Phúc | Help prepare sample questions and safe AI outputs |
 
 Backup không có nghĩa là thay owner hoàn toàn. Backup chỉ giúp task không bị đứng khi owner bận hoặc bị block.
 
@@ -171,9 +183,9 @@ Risk: LLM latency, cần cached fallback.
 
 ## 11. How to update owners later
 
-Sau khi team leader họp phân vai:
+Nếu team đổi owner sau discussion:
 
-1. Điền tên thật vào bảng role trong file này.
+1. Cập nhật tên trong bảng role của file này.
 2. Cập nhật owner trong `ai-context/MODULE_MAP.md`.
 3. Cập nhật module contract nếu đã có.
 4. Ghi lại thay đổi quan trọng trong `ai-context/DECISIONS.md` nếu ảnh hưởng workflow.
@@ -181,11 +193,11 @@ Sau khi team leader họp phân vai:
 
 ---
 
-## 12. Current owner placeholders
+## 12. Current owners
 
 ```text
-Technical Lead / Integration Lead: TBD
-AI/RAG/CV Lead: TBD
-Frontend/Backend Software Developer: TBD
-Product Flow / Demo / Pitch Support: TBD
+Technical Lead / Integration Lead: Nguyễn Hữu Tri
+AI/RAG/CV Lead: Lư Hồng Phúc
+Frontend/Backend Software Developer: Nguyễn Tuấn Tài
+Product Flow / Demo / Pitch Support: Lê Thanh Phát
 ```

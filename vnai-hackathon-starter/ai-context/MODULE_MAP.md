@@ -19,7 +19,16 @@ docs/team-role-assignment.md
 
 Owner note:
 
-All owners are intentionally `TBD` for now. Real member names must be filled after team discussion, then reflected both in this file and in related module contracts.
+Official role owners are now filled for onboarding. If the team changes owner assignments later, update `docs/team-role-assignment.md`, this file, and related module contracts/context packs together.
+
+Current role owners:
+
+```text
+Technical Lead / Integration Lead: Nguyễn Hữu Tri
+AI/RAG/CV Lead: Lư Hồng Phúc
+Frontend/Backend Software Developer: Nguyễn Tuấn Tài
+Product Flow / Demo / Pitch Support: Lê Thanh Phát
+```
 
 ---
 
@@ -34,13 +43,13 @@ apps/web
 Owner:
 
 ```text
-TBD
+Nguyễn Tuấn Tài
 ```
 
 Support:
 
 ```text
-Product / Backend
+Lê Thanh Phát / Nguyễn Hữu Tri
 ```
 
 Context pack:
@@ -87,13 +96,13 @@ apps/api
 Owner:
 
 ```text
-TBD
+Nguyễn Tuấn Tài
 ```
 
 Support:
 
 ```text
-AI / Frontend
+Nguyễn Hữu Tri / Lư Hồng Phúc
 ```
 
 Context pack:
@@ -132,13 +141,13 @@ apps/web/components/chat
 Owner:
 
 ```text
-TBD
+Lư Hồng Phúc
 ```
 
 Support:
 
 ```text
-Backend / AI / Frontend
+Nguyễn Hữu Tri / Nguyễn Tuấn Tài / Lê Thanh Phát
 ```
 
 Context pack:
@@ -176,13 +185,13 @@ apps/web/components/upload
 Owner:
 
 ```text
-TBD
+Nguyễn Tuấn Tài
 ```
 
 Support:
 
 ```text
-Backend / AI / Product
+Lư Hồng Phúc / Nguyễn Hữu Tri
 ```
 
 Context pack:
@@ -218,13 +227,13 @@ apps/web/components/image-analysis
 Owner:
 
 ```text
-TBD
+Lư Hồng Phúc
 ```
 
 Support:
 
 ```text
-AI / Backend / Product
+Nguyễn Tuấn Tài / Lê Thanh Phát
 ```
 
 Context pack:
@@ -267,13 +276,13 @@ apps/api/services/report_service.py
 Owner:
 
 ```text
-TBD
+Lê Thanh Phát
 ```
 
 Support:
 
 ```text
-Product / Frontend / Backend / AI
+Nguyễn Hữu Tri / Nguyễn Tuấn Tài / Lư Hồng Phúc
 ```
 
 Context pack:

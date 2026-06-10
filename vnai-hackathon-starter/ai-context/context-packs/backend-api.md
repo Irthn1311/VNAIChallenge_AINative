@@ -6,9 +6,9 @@ Backend API is the planned FastAPI service that validates requests, orchestrates
 
 ## 2. Owner
 
-Owner: TBD
+Owner: Nguyễn Tuấn Tài
 
-Support: Frontend/UI, AI/RAG/CV, Product/Demo
+Support: Nguyễn Hữu Tri, Lư Hồng Phúc, Lê Thanh Phát
 
 ## 3. Related Files
 
@@ -125,4 +125,3 @@ Name service files to use or create.
 Require validation and documented error response.
 Do not modify frontend unless explicitly requested.
 ```
-

@@ -20,6 +20,13 @@ Tài liệu này ghi lại tool và stack team đã chọn để tránh tranh lu
 | CodeGraph | Module/dependency understanding | Replacing manual review |
 | Repomix | Packing repo context for LLMs | Sending secrets/private data |
 
+Detailed tool workflow:
+
+* [tools/codebase-context-workflow.md](tools/codebase-context-workflow.md)
+* [tools/codegraph-guide.md](tools/codegraph-guide.md)
+* [tools/gitnexus-guide.md](tools/gitnexus-guide.md)
+* [tools/repomix-guide.md](tools/repomix-guide.md)
+
 ---
 
 ## 2. Final technical stack
@@ -114,4 +121,3 @@ Mitigation:
 Accepted for preparation.
 
 Implementation starts only after documentation, module contracts, and mock tasks are complete.
-

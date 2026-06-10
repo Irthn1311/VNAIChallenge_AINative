@@ -75,8 +75,9 @@ Recommended order:
 6. `docs/definition-of-done.md`
 7. `ai-context/MODULE_MAP.md`
 8. `ai-context/PROMPT_LIBRARY.md`
-9. Related context pack
-10. `docs/module-contract-template.md`
+9. `docs/tools/codebase-context-workflow.md`
+10. Related context pack
+11. `docs/module-contract-template.md`
 
 ---
 
@@ -151,7 +152,25 @@ Nếu context pack sai hoặc thiếu, cập nhật trước khi code.
 
 ---
 
-## 10. What not to do
+## 10. How to use codebase context tools
+
+For codebase context workflow, read:
+
+* [tools/codebase-context-workflow.md](tools/codebase-context-workflow.md)
+* [tools/codegraph-guide.md](tools/codegraph-guide.md)
+* [tools/gitnexus-guide.md](tools/gitnexus-guide.md)
+* [tools/repomix-guide.md](tools/repomix-guide.md)
+
+Tóm tắt:
+
+* GitNexus: visual repo understanding and onboarding.
+* CodeGraph: structured code relationship and AI coding support after implementation begins.
+* Repomix: packaging selected context for LLMs.
+* Markdown docs/context packs: source of truth.
+
+---
+
+## 11. What not to do
 
 * Không tạo app code khi đang preparation.
 * Không install package tùy hứng.
@@ -162,7 +181,7 @@ Nếu context pack sai hoặc thiếu, cập nhật trước khi code.
 
 ---
 
-## 11. First onboarding checklist
+## 12. First onboarding checklist
 
 ```text
 [ ] Đọc README.md
@@ -172,6 +191,7 @@ Nếu context pack sai hoặc thiếu, cập nhật trước khi code.
 [ ] Đọc definition of done
 [ ] Đọc module map
 [ ] Đọc prompt library
+[ ] Đọc codebase context workflow
 [ ] Chọn một context pack để đọc kỹ
 [ ] Viết thử một module contract
 [ ] Review PR template

@@ -6,12 +6,14 @@ Workflow này dành cho team hackathon 4 người, ưu tiên rõ việc, nhanh, 
 
 ## 1. Vai trò đề xuất
 
-* Frontend/UI: màn hình, flow người dùng, loading/error state.
-* Backend/API: route, schema, service orchestration, deploy backend.
-* AI/RAG/CV: prompt, retrieval, model/API integration, eval.
-* Product/Flow/Demo: problem statement, user journey, sample data, pitch, demo safety.
+* Nguyễn Hữu Tri - Technical Lead / Integration Lead: system architecture, API contract direction, integration, merge/demo stability.
+* Lư Hồng Phúc - AI/RAG/CV Lead: RAG/CV/OCR design, prompt support, AI eval, AI context packs.
+* Nguyễn Tuấn Tài - Frontend/Backend Software Developer: UI/API implementation support, integration, bug fixing.
+* Lê Thanh Phát - Product Flow / Demo / Pitch Support: user journey, demo script, sample data planning, pitch story.
 
-Một người có thể hỗ trợ nhiều vai trò, nhưng mỗi module phải có một owner chính.
+Đây là ownership role, không phải ranh giới cứng. Thành viên có thể hỗ trợ nhau, nhưng mỗi module phải có một owner chính.
+
+Chi tiết phân vai nằm ở [team-role-assignment.md](team-role-assignment.md).
 
 ---
 
@@ -106,4 +108,3 @@ Trong 1 giờ cuối:
 * Demo freeze.
 * Pitch freeze.
 * Chỉ chạy lại flow đã test.
-

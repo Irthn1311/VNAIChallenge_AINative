@@ -44,7 +44,7 @@ Chat RAG
 
 ## Owner
 
-TBD
+Lư Hồng Phúc
 
 ## Support
 
@@ -126,7 +126,7 @@ Upload Document
 
 ## Owner
 
-TBD
+Nguyễn Tuấn Tài
 
 ## Support
 
@@ -209,7 +209,7 @@ CV/OCR
 
 ## Owner
 
-TBD
+Lư Hồng Phúc
 
 ## Support
 
@@ -277,4 +277,3 @@ apps/web/components/image-analysis - expected future folder
 ## Demo relevance
 
 Useful when challenge problem involves forms, documents, images, receipts, or visual inspection.
-

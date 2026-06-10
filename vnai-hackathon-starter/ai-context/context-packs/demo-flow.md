@@ -8,9 +8,9 @@ It is a product/demo module, not only a slide task.
 
 ## 2. Owner
 
-Owner: TBD
+Owner: Lê Thanh Phát
 
-Support: All members
+Support: Nguyễn Hữu Tri, Lư Hồng Phúc, Nguyễn Tuấn Tài
 
 ## 3. Related Files
 
@@ -128,4 +128,3 @@ Provide product idea, target user, available features, demo time limit, and know
 Ask for a short script, fallback plan, and sample questions.
 Do not let AI invent implemented features.
 ```
-

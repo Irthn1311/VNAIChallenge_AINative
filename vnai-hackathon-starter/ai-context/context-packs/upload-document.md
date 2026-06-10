@@ -8,9 +8,9 @@ Preparation goal: define expected behavior before real implementation.
 
 ## 2. Owner
 
-Owner: TBD
+Owner: Nguyễn Tuấn Tài
 
-Support: Backend/API, AI/RAG, Frontend/UI, Product/Demo
+Support: Lư Hồng Phúc, Nguyễn Hữu Tri, Lê Thanh Phát
 
 ## 3. Related Files
 
@@ -163,4 +163,3 @@ Return document_id, collection_id, filename, file_type, status, and message.
 Do not implement PDF parsing yet.
 Do not modify chat code.
 ```
-

@@ -2,6 +2,13 @@
 
 Reusable prompts for AI coding, documentation, review, debugging, refactor, API checking, and context-pack generation.
 
+For codebase context workflow, read:
+
+* `docs/tools/codebase-context-workflow.md`
+* `docs/tools/codegraph-guide.md`
+* `docs/tools/gitnexus-guide.md`
+* `docs/tools/repomix-guide.md`
+
 ---
 
 ## 1. Standard AI Coding Prompt
@@ -15,6 +22,7 @@ Before editing:
 3. Read ai-context/MODULE_MAP.md.
 4. Read the related context pack.
 5. Read docs/api-contract.md if this task touches frontend/backend integration.
+6. Read docs/tools/codebase-context-workflow.md if the task needs broader repo context.
 
 Task:
 [task]
@@ -207,4 +215,3 @@ Constraints:
 - Vietnamese for team-facing docs is preferred.
 - English technical terms are fine.
 ```
-

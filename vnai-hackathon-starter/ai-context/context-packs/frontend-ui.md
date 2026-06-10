@@ -8,9 +8,9 @@ It should make AI features easy to understand: upload, chat, report, image analy
 
 ## 2. Owner
 
-Owner: TBD
+Owner: Nguyễn Tuấn Tài
 
-Support: Product/Demo, Backend/API, AI/RAG
+Support: Lê Thanh Phát, Nguyễn Hữu Tri, Lư Hồng Phúc
 
 ## 3. Related Files
 
@@ -134,4 +134,3 @@ Include loading/error/empty behavior.
 Say whether mock data or real API call is expected.
 Do not allow backend logic in frontend.
 ```
-

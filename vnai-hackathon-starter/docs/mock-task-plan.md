@@ -20,6 +20,8 @@ Mock tasks giúp team biết:
 
 ## Frontend/UI member
 
+Suggested owner: Nguyễn Tuấn Tài
+
 Mock task:
 
 * Vẽ wireframe cho chat/upload/report flow.
@@ -34,6 +36,8 @@ Output:
 
 ## Backend/API member
 
+Suggested owner: Nguyễn Tuấn Tài, with API direction from Nguyễn Hữu Tri
+
 Mock task:
 
 * Viết planned API schema cho một endpoint.
@@ -47,6 +51,8 @@ Output:
 
 ## AI/RAG/CV member
 
+Suggested owner: Lư Hồng Phúc
+
 Mock task:
 
 * Thiết kế RAG/CV data flow.
@@ -59,6 +65,8 @@ Output:
 * Eval checklist.
 
 ## Product/Flow/Demo member
+
+Suggested owner: Lê Thanh Phát
 
 Mock task:
 
@@ -140,5 +148,4 @@ Sau mỗi round, ghi nhận:
 * Người nào xử lý demo tốt?
 * Ai cần checklist rõ hơn?
 
-Kết quả dùng để assign owner trong `ai-context/MODULE_MAP.md`.
-
+Kết quả dùng để điều chỉnh owner trong `ai-context/MODULE_MAP.md` nếu team discussion thay đổi phân vai chính thức.

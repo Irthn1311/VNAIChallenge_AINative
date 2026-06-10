@@ -8,9 +8,9 @@ This is optional unless the challenge problem needs it.
 
 ## 2. Owner
 
-Owner: TBD
+Owner: Lư Hồng Phúc
 
-Support: AI, Backend/API, Frontend/UI, Product/Demo
+Support: Nguyễn Tuấn Tài, Nguyễn Hữu Tri, Lê Thanh Phát
 
 ## 3. Related Files
 
@@ -136,4 +136,3 @@ Require structured output.
 Require fallback/error behavior.
 Do not connect heavy models without approval.
 ```
-

@@ -16,6 +16,13 @@ Do not scaffold real Next.js, FastAPI, Supabase, or application code until the t
 
 Help the team keep architecture, module contracts, API contracts, AI coding prompts, and demo workflow consistent.
 
+For codebase context workflow, read:
+
+* `docs/tools/codebase-context-workflow.md`
+* `docs/tools/codegraph-guide.md`
+* `docs/tools/gitnexus-guide.md`
+* `docs/tools/repomix-guide.md`
+
 The future stack is:
 
 * Next.js frontend
@@ -40,6 +47,7 @@ The future stack is:
 8. If requirements are unclear, make the safest minimal assumption and document it.
 9. Prefer documentation, contracts, and planning in preparation phase.
 10. Do not install packages unless explicitly requested.
+11. Treat Markdown docs/context packs as source of truth over tool-generated views.
 
 ---
 
@@ -84,4 +92,3 @@ Prioritize:
 6. Future scalability only after the demo is safe.
 
 Do not over-engineer.
-
