@@ -1,0 +1,27 @@
+{
+  "output": {
+    "filePath": "repomix-output.md",
+    "style": "markdown",
+    "removeComments": false,
+    "showLineNumbers": true
+  },
+  "ignore": {
+    "customPatterns": [
+      "node_modules/**",
+      ".next/**",
+      "dist/**",
+      "build/**",
+      ".venv/**",
+      "__pycache__/**",
+      ".git/**",
+      ".codegraph/**",
+      ".gitnexus/**",
+      "repomix-output.*",
+      "repomix-*.md",
+      ".env",
+      ".env.*",
+      "*.pem",
+      "*.key"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies / builds
+node_modules/
+.next/
+dist/
+build/
+.venv/
+__pycache__/
+
+# Codebase context tools
+.codegraph/
+.gitnexus/
+repomix-output.*
+repomix-*.md
