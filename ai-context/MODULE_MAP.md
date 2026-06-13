@@ -1,27 +1,27 @@
 # MODULE_MAP.md
 
-This file maps planned modules to responsibilities, owners, integration points, and context packs.
+File này dùng để ánh xạ các module dự kiến với các trách nhiệm, người phụ trách (owner), các điểm tích hợp và các gói ngữ cảnh (context packs) tương ứng.
 
-Update this file when:
+Cập nhật file này khi:
 
-* A module is added, removed, or renamed.
-* Ownership changes.
-* API contract changes.
-* Demo-critical flow changes.
+* Một module được thêm, xóa, hoặc đổi tên.
+* Có sự thay đổi về người phụ trách.
+* Có sự thay đổi về thỏa thuận API (API contract).
+* Thay đổi luồng quan trọng của demo (Demo-critical flow).
 
-Current phase: preparation only. Paths below may be expected future files.
+Giai đoạn hiện tại: chỉ mới là chuẩn bị (preparation). Các đường dẫn bên dưới có thể là các file dự kiến trong tương lai.
 
-Role assignment source:
+Nguồn phân công vai trò:
 
 ```text
 docs/team-role-assignment.md
 ```
 
-Owner note:
+Lưu ý về người phụ trách (Owner note):
 
-Official role owners are now filled for onboarding. If the team changes owner assignments later, update `docs/team-role-assignment.md`, this file, and related module contracts/context packs together.
+Các vai trò chính thức hiện đã được điền để phục vụ cho việc onboarding. Nếu sau này đội thay đổi phân công, hãy nhớ cập nhật cùng lúc ở `docs/team-role-assignment.md`, file này, và các module contracts/context packs liên quan.
 
-Current role owners:
+Các người phụ trách hiện tại:
 
 ```text
 Technical Lead / Integration Lead: Nguyễn Hữu Tri
@@ -32,42 +32,42 @@ Product Flow / Demo / Pitch Support: Lê Thanh Phát
 
 ---
 
-## 1. Frontend UI
+## 1. Giao diện Frontend (Frontend UI)
 
-Path:
+Đường dẫn:
 
 ```text
 apps/web
 ```
 
-Owner:
+Người phụ trách:
 
 ```text
 Nguyễn Tuấn Tài
 ```
 
-Support:
+Hỗ trợ:
 
 ```text
 Lê Thanh Phát / Nguyễn Hữu Tri
 ```
 
-Context pack:
+Gói ngữ cảnh (Context pack):
 
 ```text
 ai-context/context-packs/frontend-ui.md
 ```
 
-Responsibilities:
+Trách nhiệm:
 
-* App layout.
-* Chat UI.
-* Upload UI.
-* Report/dashboard screen.
-* API calls to FastAPI backend.
-* Loading, empty, error states.
+* Bố cục ứng dụng (App layout).
+* Giao diện Chat.
+* Giao diện Upload.
+* Màn hình Báo cáo/Dashboard.
+* Gọi API đến FastAPI backend.
+* Xử lý các trạng thái tải (loading), trống (empty), và lỗi (error).
 
-Integration points:
+Điểm tích hợp:
 
 ```text
 GET /health
@@ -77,80 +77,80 @@ POST /api/report
 POST /api/analyze-image
 ```
 
-Do not:
+Không được làm (Do not):
 
-* Store backend secrets.
-* Hard-code final AI responses except clearly marked fallback/demo fixtures.
-* Change API assumptions without updating `docs/api-contract.md`.
+* Không lưu trữ thông tin bảo mật của backend (secrets).
+* Không fix cứng (hard-code) câu trả lời cuối cùng của AI trừ khi đó là dữ liệu fallback/demo được đánh dấu rõ ràng.
+* Không thay đổi các giả định về API mà không cập nhật vào `docs/api-contract.md`.
 
 ---
 
-## 2. Backend API
+## 2. API Backend (Backend API)
 
-Path:
+Đường dẫn:
 
 ```text
 apps/api
 ```
 
-Owner:
+Người phụ trách:
 
 ```text
 Nguyễn Tuấn Tài
 ```
 
-Support:
+Hỗ trợ:
 
 ```text
 Nguyễn Hữu Tri / Lư Hồng Phúc
 ```
 
-Context pack:
+Gói ngữ cảnh (Context pack):
 
 ```text
 ai-context/context-packs/backend-api.md
 ```
 
-Responsibilities:
+Trách nhiệm:
 
-* FastAPI routes.
-* Request validation.
-* Response schema stability.
-* Service orchestration.
-* Supabase connection.
-* AI/RAG/CV integration.
+* Các endpoint (routes) FastAPI.
+* Kiểm tra tính hợp lệ của request (Request validation).
+* Đảm bảo tính ổn định của cấu trúc response (Response schema stability).
+* Điều phối các dịch vụ (Service orchestration).
+* Kết nối Supabase.
+* Tích hợp AI/RAG/CV.
 
-Do not:
+Không được làm (Do not):
 
-* Return undocumented response formats.
-* Create duplicate endpoints.
-* Put frontend UI logic here.
-* Hide deployment errors during demo.
+* Không trả về các định dạng response chưa được viết trong tài liệu.
+* Không tạo các endpoint trùng lặp.
+* Không đưa logic giao diện (frontend UI) vào đây.
+* Không che giấu các lỗi triển khai trong lúc demo.
 
 ---
 
 ## 3. Chat RAG
 
-Path:
+Đường dẫn:
 
 ```text
 apps/api/services/rag
 apps/web/components/chat
 ```
 
-Owner:
+Người phụ trách:
 
 ```text
 Lư Hồng Phúc
 ```
 
-Support:
+Hỗ trợ:
 
 ```text
 Nguyễn Hữu Tri / Nguyễn Tuấn Tài / Lê Thanh Phát
 ```
 
-Context pack:
+Gói ngữ cảnh (Context pack):
 
 ```text
 ai-context/context-packs/chat-rag.md
@@ -162,19 +162,19 @@ API:
 POST /api/chat
 ```
 
-Responsibilities:
+Trách nhiệm:
 
-* Retrieve relevant chunks.
-* Build prompt with context.
-* Generate answer.
-* Return sources.
-* Handle unsupported questions safely.
+* Truy xuất các đoạn thông tin liên quan (Retrieve relevant chunks).
+* Xây dựng prompt kèm ngữ cảnh.
+* Sinh câu trả lời.
+* Trả về nguồn trích dẫn (sources).
+* Xử lý an toàn các câu hỏi không được hỗ trợ.
 
 ---
 
-## 4. Upload Document
+## 4. Tải lên tài liệu (Upload Document)
 
-Path:
+Đường dẫn:
 
 ```text
 apps/api/routes/upload.py
@@ -182,19 +182,19 @@ apps/api/services/document_service.py
 apps/web/components/upload
 ```
 
-Owner:
+Người phụ trách:
 
 ```text
 Nguyễn Tuấn Tài
 ```
 
-Support:
+Hỗ trợ:
 
 ```text
 Lư Hồng Phúc / Nguyễn Hữu Tri
 ```
 
-Context pack:
+Gói ngữ cảnh (Context pack):
 
 ```text
 ai-context/context-packs/upload-document.md
@@ -206,37 +206,37 @@ API:
 POST /api/upload
 ```
 
-Responsibilities:
+Trách nhiệm:
 
-* Validate file.
-* Store file or metadata.
-* Extract text if supported.
-* Prepare document for RAG.
+* Kiểm tra tính hợp lệ của file.
+* Lưu trữ file hoặc siêu dữ liệu (metadata).
+* Trích xuất văn bản (nếu được hỗ trợ).
+* Chuẩn bị tài liệu cho hệ thống RAG.
 
 ---
 
-## 5. CV / OCR
+## 5. Thị giác máy tính / Nhận dạng ký tự quang học (CV / OCR)
 
-Path:
+Đường dẫn:
 
 ```text
 apps/api/services/cv
 apps/web/components/image-analysis
 ```
 
-Owner:
+Người phụ trách:
 
 ```text
 Lư Hồng Phúc
 ```
 
-Support:
+Hỗ trợ:
 
 ```text
 Nguyễn Tuấn Tài / Lê Thanh Phát
 ```
 
-Context pack:
+Gói ngữ cảnh (Context pack):
 
 ```text
 ai-context/context-packs/cv-ocr.md
@@ -248,22 +248,22 @@ API:
 POST /api/analyze-image
 ```
 
-Responsibilities:
+Trách nhiệm:
 
-* Validate image input.
-* Run OCR or CV model/API.
-* Return structured result, confidence, and explanation.
+* Kiểm tra tính hợp lệ của ảnh đầu vào.
+* Chạy mô hình/API OCR hoặc CV.
+* Trả về kết quả có cấu trúc, độ tin cậy (confidence), và lời giải thích.
 
-Do not:
+Không được làm (Do not):
 
-* Make optional CV block the main demo.
-* Depend on heavy local-only models unless tested.
+* Không lấy block CV (vốn là tùy chọn) làm phần demo chính.
+* Không phụ thuộc vào các mô hình chạy local quá nặng trừ khi đã được test.
 
 ---
 
-## 6. Report / Demo Flow
+## 6. Luồng Báo cáo / Demo (Report / Demo Flow)
 
-Path:
+Đường dẫn:
 
 ```text
 docs/
@@ -273,19 +273,19 @@ apps/web/report
 apps/api/services/report_service.py
 ```
 
-Owner:
+Người phụ trách:
 
 ```text
 Lê Thanh Phát
 ```
 
-Support:
+Hỗ trợ:
 
 ```text
 Nguyễn Hữu Tri / Nguyễn Tuấn Tài / Lư Hồng Phúc
 ```
 
-Context pack:
+Gói ngữ cảnh (Context pack):
 
 ```text
 ai-context/context-packs/demo-flow.md
@@ -297,18 +297,18 @@ API:
 POST /api/report
 ```
 
-Responsibilities:
+Trách nhiệm:
 
-* Problem statement.
-* User journey.
-* Demo script.
-* Sample data.
-* Evaluation questions.
-* Pitch outline.
-* Fallback plan.
+* Phát biểu bài toán (Problem statement).
+* Hành trình người dùng (User journey).
+* Kịch bản demo (Demo script).
+* Dữ liệu mẫu (Sample data).
+* Các câu hỏi đánh giá (Evaluation questions).
+* Dàn ý bài thuyết trình (Pitch outline).
+* Kế hoạch dự phòng (Fallback plan).
 
-Do not:
+Không được làm (Do not):
 
-* Keep demo flow only in chat messages.
-* Use random untested demo data.
-* Change demo path right before presentation.
+* Không giữ luồng demo chỉ ở trong các tin nhắn trò chuyện (phải viết vào docs).
+* Không sử dụng dữ liệu demo ngẫu nhiên chưa được test.
+* Không thay đổi luồng demo ngay sát giờ thuyết trình.

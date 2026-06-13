@@ -1,18 +1,18 @@
-# Context Pack: Backend API
+# Gói ngữ cảnh: API Backend (Backend API)
 
-## 1. Purpose
+## 1. Mục đích (Purpose)
 
-Backend API is the planned FastAPI service that validates requests, orchestrates AI services, and returns stable responses to the frontend.
+Backend API là dịch vụ FastAPI dự kiến, có chức năng kiểm tra tính hợp lệ của request, điều phối các dịch vụ AI, và trả về dữ liệu ổn định cho frontend.
 
-## 2. Owner
+## 2. Người phụ trách (Owner)
 
-Owner: Nguyễn Tuấn Tài
+Người phụ trách chính: Nguyễn Tuấn Tài
 
-Support: Nguyễn Hữu Tri, Lư Hồng Phúc, Lê Thanh Phát
+Hỗ trợ: Nguyễn Hữu Tri, Lư Hồng Phúc, Lê Thanh Phát
 
-## 3. Related Files
+## 3. Các file liên quan (Related Files)
 
-Existing files:
+Các file hiện có:
 
 ```text
 docs/api-contract.md
@@ -20,7 +20,7 @@ docs/architecture.md
 ai-context/MODULE_MAP.md
 ```
 
-Expected future files:
+Các file dự kiến sẽ có:
 
 ```text
 apps/api/main.py
@@ -31,34 +31,34 @@ apps/api/core/config.py
 apps/api/tests/
 ```
 
-## 4. Data Flow
+## 4. Luồng dữ liệu (Data Flow)
 
 ```text
-Frontend request
-  -> FastAPI route
-  -> Pydantic validation
-  -> Service layer
-  -> Supabase / AI provider / storage
-  -> Structured response
+Request từ Frontend
+  -> Route của FastAPI
+  -> Xác thực dữ liệu bằng Pydantic
+  -> Tầng dịch vụ (Service layer)
+  -> Supabase / API của nhà cung cấp AI / Bộ nhớ lưu trữ (storage)
+  -> Trả về response có cấu trúc
   -> Frontend
 ```
 
-## 5. Input / Output
+## 5. Đầu vào / Đầu ra (Input / Output)
 
-Input:
+Đầu vào:
 
-* JSON payloads for chat/report.
-* Multipart uploads for documents/images.
-* Health check requests.
+* Các payload dạng JSON cho tính năng chat/báo cáo.
+* Giao thức Multipart uploads cho tài liệu/hình ảnh.
+* Các request kiểm tra trạng thái sức khỏe (Health check requests).
 
-Output:
+Đầu ra:
 
-* JSON responses matching `docs/api-contract.md`.
-* Stable error responses.
+* Các phản hồi JSON khớp với định nghĩa trong `docs/api-contract.md`.
+* Các phản hồi lỗi ổn định.
 
-## 6. API or Integration Contract
+## 6. Hợp đồng API / Tích hợp (API or Integration Contract)
 
-Planned endpoints:
+Các endpoint dự kiến:
 
 ```text
 GET /health
@@ -68,60 +68,60 @@ POST /api/report
 POST /api/analyze-image
 ```
 
-Status: Planned
+Trạng thái: Đang lên kế hoạch (Planned)
 
-## 7. Dependencies
+## 7. Các thành phần phụ thuộc (Dependencies)
 
 * FastAPI.
 * Pydantic.
 * Supabase client.
 * LLM/embedding provider.
-* File parser/OCR provider if needed.
-* Environment variables.
+* Trình đọc file/OCR (nếu cần).
+* Biến môi trường (Environment variables).
 
-## 8. Do Not Rules
+## 8. Những điều tuyệt đối không làm (Do Not Rules)
 
-* Do not return undocumented schemas.
-* Do not hard-code secrets.
-* Do not put UI logic in backend.
-* Do not create duplicate routes.
-* Do not make `/health` depend on slow AI calls.
-* Do not swallow errors without useful messages.
+* Không trả về các cấu trúc dữ liệu chưa được ghi trong tài liệu (undocumented schemas).
+* Không fix cứng (hard-code) các mã bảo mật (secrets).
+* Không đưa logic giao diện UI vào backend.
+* Không tạo các route trùng lặp.
+* Không làm cho endpoint `/health` bị phụ thuộc vào các lời gọi AI chậm chạp.
+* Không lờ đi (swallow) các lỗi mà thiếu đi tin nhắn cảnh báo hữu ích.
 
-## 9. Common Tasks
+## 9. Các nhiệm vụ chung (Common Tasks)
 
-* Define schemas.
-* Implement health route.
-* Implement chat/upload/report/image routes.
-* Add service layer.
-* Add CORS.
-* Add manual smoke tests.
+* Định nghĩa các schema.
+* Triển khai route health (kiểm tra sức khỏe hệ thống).
+* Triển khai các route chat/upload/report/image.
+* Bổ sung tầng dịch vụ (service layer).
+* Cấu hình CORS.
+* Viết thêm các bài kiểm tra chạy thử (manual smoke tests).
 
-## 10. Testing Checklist
+## 10. Danh sách kiểm thử (Testing Checklist)
 
 ```text
-[ ] GET /health returns ok
-[ ] Valid requests match API contract
-[ ] Invalid requests return clear errors
-[ ] CORS works with frontend origin
-[ ] Missing env variables fail clearly
-[ ] Demo endpoints respond within acceptable time
+[ ] GET /health trả về ok
+[ ] Các request hợp lệ khớp với hợp đồng API
+[ ] Các request không hợp lệ trả về lỗi rõ ràng
+[ ] Cấu hình CORS hoạt động tốt với domain của frontend
+[ ] Sẽ báo lỗi rõ ràng nếu thiếu các biến môi trường
+[ ] Các endpoint dùng để demo phản hồi trong khoảng thời gian chấp nhận được
 ```
 
-## 11. Demo Relevance
+## 11. Mức độ quan trọng khi Demo (Demo Relevance)
 
-Very high. Backend instability can break the entire demo.
+Rất cao. Sự thiếu ổn định của backend có thể phá hỏng toàn bộ buổi demo.
 
-Prepare `/health`, logs, env checklist, and fallback plan.
+Hãy chuẩn bị sẵn endpoint `/health`, hệ thống log, danh sách kiểm tra các biến môi trường (env), và phương án dự phòng (fallback plan).
 
-## 12. AI Coding Instruction
+## 12. Hướng dẫn Lập trình với AI (AI Coding Instruction)
 
-When asking AI to work on backend:
+Khi yêu cầu AI làm việc trên backend:
 
 ```text
-Name the exact endpoint.
-Paste the API contract.
-Name service files to use or create.
-Require validation and documented error response.
-Do not modify frontend unless explicitly requested.
+Nêu tên đích danh endpoint.
+Dán nội dung hợp đồng API (API contract) vào.
+Nêu tên các file service cần sử dụng hoặc tạo mới.
+Bắt buộc phải có chức năng kiểm tra hợp lệ (validation) và response lỗi phải giống tài liệu.
+Không được thay đổi frontend trừ khi có yêu cầu rõ ràng.
 ```

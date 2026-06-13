@@ -1,22 +1,22 @@
-# AI Coding Workflow
+# Quy trình Viết code bằng AI (AI Coding Workflow)
 
-AI coding giúp team nhanh hơn, nhưng nếu thiếu kiểm soát sẽ tạo sai architecture, sai API contract và khó demo.
+Sử dụng AI để code giúp team nhanh hơn, nhưng nếu không kiểm soát cẩn thận sẽ dễ dẫn đến sai về kiến trúc, sai về hợp đồng API (API contract) và khó demo.
 
 ---
 
-## 1. Why AI coding needs control
+## 1. Tại sao việc dùng AI để code cần được kiểm soát
 
-AI tools có thể:
+Các công cụ AI có thể:
 
-* Tạo file không cần thiết.
-* Bịa route hoặc schema.
-* Sửa lan sang module khác.
-* Hard-code demo logic.
-* Làm code chạy được một phần nhưng phá integration.
+* Tạo ra các file không cần thiết.
+* Bịa ra các route hoặc cấu trúc dữ liệu (schema).
+* Sửa code lan sang các module khác.
+* Fix cứng (hard-code) logic chỉ để phục vụ demo.
+* Làm cho code chạy được một phần nhưng lại làm hỏng phần tích hợp (integration).
 
-Vì vậy team dùng context packs và contracts trước khi prompt.
+Vì vậy, team phải sử dụng các gói ngữ cảnh (context packs) và các hợp đồng (contracts) trước khi ra lệnh (prompt) cho AI.
 
-For codebase context workflow, read:
+Về quy trình sử dụng ngữ cảnh codebase, vui lòng đọc:
 
 * [tools/codebase-context-workflow.md](tools/codebase-context-workflow.md)
 * [tools/codegraph-guide.md](tools/codegraph-guide.md)
@@ -25,84 +25,84 @@ For codebase context workflow, read:
 
 ---
 
-## 2. Required context before prompting AI
+## 2. Ngữ cảnh bắt buộc trước khi ra lệnh cho AI
 
-Trước khi dùng AI cho task không nhỏ, chuẩn bị:
+Trước khi dùng AI cho một task không phải là quá nhỏ, bạn cần chuẩn bị:
 
-* Task rõ ràng.
+* Yêu cầu task rõ ràng.
 * Module liên quan.
-* Related files.
-* API contract.
-* Context pack.
-* Constraints.
-* Testing checklist.
+* Các file liên quan (Related files).
+* Hợp đồng API (API contract).
+* Gói ngữ cảnh (Context pack).
+* Các ràng buộc (Constraints).
+* Danh sách kiểm tra (Testing checklist).
 
 ---
 
-## 3. Standard AI coding prompt
+## 3. Mẫu prompt chuẩn để code bằng AI
 
 ```text
-You are working inside our VNAI hackathon starter repo.
-Read ai-context/AGENTS.md, PROJECT_CONTEXT.md, MODULE_MAP.md, and the related context pack first.
+Bạn đang làm việc trong repo VNAI hackathon starter của chúng tôi.
+Hãy đọc các file ai-context/AGENTS.md, PROJECT_CONTEXT.md, MODULE_MAP.md, và gói ngữ cảnh (context pack) liên quan trước.
 
 Task:
-[task]
+[Mô tả task]
 
 Module:
-[module]
+[Tên module]
 
-Related files:
-[files]
+Các file liên quan:
+[Danh sách file]
 
-API contract:
-[endpoint or none]
+Hợp đồng API (API contract):
+[Endpoint hoặc none]
 
-Constraints:
-- Do not change unrelated files.
-- Follow docs/api-contract.md.
-- Keep the implementation minimal.
-- Do not invent new architecture.
+Ràng buộc (Constraints):
+- Không thay đổi các file không liên quan.
+- Tuân thủ theo docs/api-contract.md.
+- Giữ cho phần triển khai code ở mức tối giản (minimal).
+- Không tự bịa ra kiến trúc mới.
 
-Testing:
-[steps]
+Kiểm thử (Testing):
+[Các bước kiểm tra]
 ```
 
 ---
 
-## 4. Debug prompt
+## 4. Mẫu prompt tìm và sửa lỗi (Debug prompt)
 
 ```text
-Debug this issue with the smallest safe fix.
+Hãy debug vấn đề này bằng cách sửa lỗi an toàn và nhỏ nhất có thể.
 
-Expected:
+Kết quả mong đợi (Expected):
 [expected]
 
-Actual:
+Kết quả thực tế (Actual):
 [actual]
 
 Logs:
 [logs]
 
-Relevant files:
+Các file liên quan (Relevant files):
 [files]
 
-Constraints:
-- Do not refactor unrelated code.
-- Do not change API response format unless necessary.
-- Explain how to verify the fix.
+Ràng buộc (Constraints):
+- Không refactor các đoạn code không liên quan.
+- Không thay đổi định dạng response của API trừ khi thật sự cần thiết.
+- Hãy giải thích cách để xác minh bản vá lỗi này.
 ```
 
 ---
 
-## 5. Code review prompt
+## 5. Mẫu prompt review code
 
 ```text
-Review this diff for bugs, API mismatch, module boundary issues, demo risk, and missing tests.
+Hãy review đoạn diff này để tìm bug, sự không khớp về API, các vấn đề về ranh giới module, rủi ro khi demo, và các test case bị thiếu.
 
-Related module:
+Module liên quan:
 [module]
 
-API contract:
+Hợp đồng API (API contract):
 [contract]
 
 Diff:
@@ -111,120 +111,120 @@ Diff:
 
 ---
 
-## 6. Refactor prompt
+## 6. Mẫu prompt cấu trúc lại code (Refactor prompt)
 
 ```text
-Refactor this code without changing behavior.
+Hãy refactor đoạn code này mà không làm thay đổi hành vi của nó.
 
-Goal:
+Mục tiêu (Goal):
 [goal]
 
-Files:
+Các file (Files):
 [files]
 
-Constraints:
-- Keep public API stable.
-- Keep UI behavior stable.
-- Do not move logic across modules unless necessary.
-- Explain risks.
+Ràng buộc (Constraints):
+- Giữ cho API công khai (public API) ổn định.
+- Giữ cho hành vi UI ổn định.
+- Không di chuyển logic qua lại giữa các module trừ khi thật sự cần.
+- Hãy giải thích các rủi ro.
 ```
 
 ---
 
-## 7. API contract checking prompt
+## 7. Mẫu prompt kiểm tra hợp đồng API
 
 ```text
-Compare implementation with docs/api-contract.md.
+Hãy so sánh phần triển khai code với docs/api-contract.md.
 
 Endpoint:
 [endpoint]
 
-Files:
+Các file (Files):
 [files]
 
-Return:
-- Request mismatch.
-- Response mismatch.
-- Error handling mismatch.
-- Docs/context pack updates needed.
+Trả về kết quả (Return):
+- Điểm không khớp về Request.
+- Điểm không khớp về Response.
+- Điểm không khớp về xử lý lỗi (Error handling).
+- Những cập nhật cần thiết cho Docs/context pack.
 ```
 
 ---
 
-## 8. Context pack generation prompt
+## 8. Mẫu prompt tạo Context pack
 
-Use the template in `ai-context/PROMPT_LIBRARY.md` or ask AI to fill the 12 required sections.
+Sử dụng form mẫu trong `ai-context/PROMPT_LIBRARY.md` hoặc yêu cầu AI tự điền vào 12 phần bắt buộc.
 
 ---
 
-## 9. Tool-specific rules
+## 9. Các quy tắc sử dụng Tool cụ thể
 
 ## ChatGPT Plus
 
-Use for:
+Dùng để:
 
-* Planning.
-* Prompt design.
-* Review.
-* Explaining architecture.
+* Lên kế hoạch (Planning).
+* Thiết kế prompt (Prompt design).
+* Review code.
+* Giải thích kiến trúc hệ thống.
 
-Do not use for:
+Không dùng để:
 
-* Blind large code generation without repo context.
+* Sinh ra lượng lớn code một cách mù quáng mà không có ngữ cảnh repo.
 
 ## Codex
 
-Use for:
+Dùng để:
 
-* Repo-aware edits.
-* Implementation.
-* Test fixes.
-* Documentation updates.
+* Chỉnh sửa code có nhận thức về repo.
+* Triển khai code (Implementation).
+* Sửa lỗi test (Test fixes).
+* Cập nhật tài liệu (Documentation updates).
 
-Do not use for:
+Không dùng để:
 
-* Broad scaffolding unless the team explicitly enters implementation phase.
+* Khởi tạo cấu trúc (scaffolding) diện rộng trừ khi team đã chính thức bước vào giai đoạn implementation.
 
 ## Gemini / Antigravity
 
-Use for:
+Dùng để:
 
-* Quick coding alternatives.
-* UI/code suggestions.
-* Cross-checking ideas.
+* Gợi ý nhanh các phương án code thay thế.
+* Đưa ra ý tưởng về UI/code.
+* Kiểm tra chéo (Cross-checking) các ý tưởng.
 
-Do not use for:
+Không dùng để:
 
-* Unreviewed direct merges.
+* Gộp code trực tiếp (direct merges) mà chưa được review.
 
 ## Claude
 
-Use for:
+Dùng để:
 
-* Long reasoning.
-* Refactor review.
-* Risk analysis.
-* Writing clearer docs.
+* Suy luận logic dài.
+* Review việc refactor code.
+* Phân tích rủi ro.
+* Viết tài liệu rõ ràng hơn.
 
-Do not use for:
+Không dùng để:
 
-* Replacing source-of-truth docs in this repo.
+* Thay thế các tài liệu nguồn gốc (source-of-truth docs) trong repo này.
 
 ## GitNexus, CodeGraph, Repomix
 
-Use for:
+Dùng để:
 
-* Understanding codebase structure.
-* Finding dependencies.
-* Creating compact context for AI.
-* Reviewing module boundaries.
+* Hiểu cấu trúc codebase.
+* Tìm các thành phần phụ thuộc (dependencies).
+* Tạo ngữ cảnh gọn nhẹ cho AI.
+* Review ranh giới của các module.
 
-Do not use for:
+Không dùng để:
 
-* Storing secrets.
-* Replacing manual review.
+* Lưu trữ secret.
+* Thay thế quy trình review thủ công.
 
-Detailed rules:
+Luật chi tiết:
 
 * GitNexus: [tools/gitnexus-guide.md](tools/gitnexus-guide.md)
 * CodeGraph: [tools/codegraph-guide.md](tools/codegraph-guide.md)
@@ -232,11 +232,11 @@ Detailed rules:
 
 ---
 
-## 10. What AI must not do
+## 10. Những điều AI tuyệt đối không được làm
 
-* Do not invent architecture.
-* Do not change unrelated files.
-* Do not hard-code secrets.
-* Do not silently change API contracts.
-* Do not remove fallback/demo safety.
-* Do not claim features are implemented when they are only planned.
+* Không tự bịa ra kiến trúc.
+* Không thay đổi các file không liên quan.
+* Không fix cứng (hard-code) thông tin bảo mật (secrets).
+* Không âm thầm thay đổi các hợp đồng API.
+* Không xóa bỏ các biện pháp an toàn cho demo / fallback.
+* Không được tuyên bố tính năng đã hoàn thành trong khi nó mới chỉ nằm trên kế hoạch.

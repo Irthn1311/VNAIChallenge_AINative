@@ -1,54 +1,54 @@
-# Codebase Context Workflow
+# Quy trình Sử dụng Ngữ cảnh Codebase (Codebase Context Workflow)
 
-This workflow connects Repomix, CodeGraph, GitNexus, and Markdown docs/context packs.
+Quy trình này kết nối Repomix, CodeGraph, GitNexus và các tài liệu/gói ngữ cảnh (context packs) dạng Markdown.
 
-Current phase:
+Giai đoạn hiện tại:
 
 ```text
-Preparation/tooling/documentation only.
-No Next.js scaffold.
-No FastAPI scaffold.
-No product implementation code.
-No frontend/backend app dependencies.
+Chỉ là giai đoạn chuẩn bị/cài đặt công cụ/viết tài liệu.
+Chưa khởi tạo dự án Next.js.
+Chưa khởi tạo dự án FastAPI.
+Chưa có code triển khai sản phẩm.
+Chưa có các thư viện phụ thuộc (dependencies) của ứng dụng frontend/backend.
 ```
 
-## Tool Roles
+## Vai trò của các công cụ (Tool Roles)
 
-| Tool | Role |
+| Công cụ | Vai trò |
 | --- | --- |
-| Repomix | Package selected repo context for ChatGPT, Claude, Gemini, or another LLM |
-| CodeGraph | Structured code relationships, symbol search, impact analysis, MCP support |
-| GitNexus | Visual repo exploration, onboarding, and repo graph |
-| Markdown docs/context packs | Source of truth for phase, rules, roles, contracts, and module boundaries |
+| Repomix | Đóng gói ngữ cảnh repo được chọn cho ChatGPT, Claude, Gemini hoặc LLM khác |
+| CodeGraph | Phân tích quan hệ mã nguồn có cấu trúc, tìm kiếm ký hiệu (symbol search), phân tích mức độ ảnh hưởng (impact analysis), hỗ trợ MCP |
+| GitNexus | Khám phá repo trực quan, hướng dẫn thành viên mới (onboarding), và sơ đồ repo (repo graph) |
+| Markdown docs/context packs | Nguồn chân lý (Source of truth) cho giai đoạn dự án, các quy tắc, vai trò, hợp đồng, và ranh giới module |
 
-## Preparation Phase Workflow
+## Quy trình làm việc trong Giai đoạn Chuẩn bị (Preparation Phase Workflow)
 
-1. Read `README.md`.
-2. Read `docs/team-onboarding-guide.md`.
-3. Read `docs/definition-of-done.md`.
-4. Read `ai-context/AGENTS.md`.
-5. Read `ai-context/MODULE_MAP.md`.
-6. Read `docs/api-contract.md` if an API topic is involved.
-7. Use Repomix to pack `docs/**` and `ai-context/**` for AI review.
-8. Use GitNexus for repo overview if useful.
-9. Keep CodeGraph installed but avoid heavy indexing until app code exists.
+1. Đọc `README.md`.
+2. Đọc `docs/team-onboarding-guide.md`.
+3. Đọc `docs/definition-of-done.md`.
+4. Đọc `ai-context/AGENTS.md`.
+5. Đọc `ai-context/MODULE_MAP.md`.
+6. Đọc `docs/api-contract.md` nếu có liên quan đến chủ đề API.
+7. Sử dụng Repomix để đóng gói `docs/**` và `ai-context/**` cho AI phân tích.
+8. Sử dụng GitNexus để xem tổng quan repo nếu cần thiết.
+9. Giữ cài đặt CodeGraph nhưng tránh việc đánh chỉ mục (indexing) quá nhiều cho đến khi có code thật.
 
-Stop there during preparation phase.
+Dừng lại ở đây trong giai đoạn chuẩn bị.
 
-## Implementation Phase Workflow
+## Quy trình làm việc trong Giai đoạn Lập trình (Implementation Phase Workflow)
 
-Only after the team explicitly moves into implementation:
+Chỉ thực hiện sau khi đội chính thức bước vào giai đoạn lập trình (implementation):
 
-1. Read the module contract and context pack.
-2. Use GitNexus to understand the repo area.
-3. Use CodeGraph to inspect code relationships and impact.
-4. Use Repomix to package selected context if asking an LLM for help.
-5. Prompt AI with exact file boundaries and do-not rules.
-6. Test.
-7. Update docs/context if a contract or module boundary changes.
-8. Open PR.
+1. Đọc hợp đồng module (module contract) và gói ngữ cảnh (context pack).
+2. Dùng GitNexus để hiểu rõ khu vực code trong repo.
+3. Dùng CodeGraph để kiểm tra các mối quan hệ của code và mức độ ảnh hưởng.
+4. Dùng Repomix để đóng gói các ngữ cảnh được chọn nếu cần nhờ LLM hỗ trợ.
+5. Cung cấp ranh giới file chính xác và các quy tắc "không được làm" (do-not rules) vào prompt cho AI.
+6. Kiểm thử (Test).
+7. Cập nhật docs/context nếu hợp đồng API hoặc ranh giới module có thay đổi.
+8. Mở Pull Request (PR).
 
-## Recommended Commands
+## Các lệnh khuyên dùng (Recommended Commands)
 
 ```powershell
 repomix --style markdown --include "docs/**,ai-context/**" --output repomix-docs-context.md
@@ -58,30 +58,30 @@ npx --yes gitnexus analyze
 codegraph --help
 ```
 
-Repomix fallback:
+Các lệnh Repomix dự phòng:
 
 ```powershell
 npx repomix@latest --style markdown --include "docs/**,ai-context/**" --output repomix-docs-context.md
 ```
 
-## Before Editing Code Checklist
+## Danh sách kiểm tra trước khi sửa code (Before Editing Code Checklist)
 
 ```text
-[ ] Team has confirmed implementation phase
-[ ] Module owner is clear in ai-context/MODULE_MAP.md
-[ ] Module contract exists or is explicitly scoped
-[ ] Context pack has been read
-[ ] API contract has been read if endpoint behavior is involved
-[ ] Related files have been identified
-[ ] Do-not rules are clear
-[ ] Test or manual verification path is defined
+[ ] Team đã xác nhận bước vào giai đoạn lập trình (implementation phase)
+[ ] Người phụ trách module đã được ghi rõ trong ai-context/MODULE_MAP.md
+[ ] Đã có hợp đồng module hoặc phạm vi (scope) được xác định rõ
+[ ] Đã đọc gói ngữ cảnh (context pack)
+[ ] Đã đọc hợp đồng API nếu hành vi của endpoint có liên quan
+[ ] Các file liên quan đã được xác định
+[ ] Các quy tắc "Tuyệt đối không" (Do-not rules) đã rõ ràng
+[ ] Cách kiểm thử (Test) hoặc xác minh thủ công đã được định nghĩa
 ```
 
-## Anti-Patterns
+## Các thói quen xấu cần tránh (Anti-Patterns)
 
-- Asking AI to build a feature without the relevant docs/context pack.
-- Sending the full repo to AI when one module context is enough.
-- Treating GitNexus or CodeGraph output as source of truth over Markdown docs.
-- Changing API behavior without updating `docs/api-contract.md`.
-- Committing generated `.codegraph`, `.gitnexus`, or `repomix-*.md` outputs.
-- Scaffolding app code during preparation phase.
+- Yêu cầu AI xây dựng tính năng mà không có gói ngữ cảnh/tài liệu liên quan.
+- Gửi toàn bộ repo cho AI trong khi chỉ cần ngữ cảnh của một module là đủ.
+- Coi kết quả đầu ra của GitNexus hoặc CodeGraph là nguồn chân lý thay vì các tài liệu Markdown.
+- Thay đổi hành vi API mà không cập nhật file `docs/api-contract.md`.
+- Commit các file đầu ra được tạo tự động như `.codegraph`, `.gitnexus`, hoặc `repomix-*.md`.
+- Dựng khung (scaffold) ứng dụng trong giai đoạn chuẩn bị.

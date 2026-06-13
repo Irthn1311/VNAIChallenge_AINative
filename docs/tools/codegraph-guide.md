@@ -1,26 +1,26 @@
-# CodeGraph Guide
+# Hướng dẫn CodeGraph (CodeGraph Guide)
 
-CodeGraph supports structured code relationship analysis, symbol search, impact checks, and MCP usage for AI coding. It is installed now for readiness, but it will be more useful after the app scaffold and real source files exist.
+CodeGraph hỗ trợ phân tích quan hệ mã nguồn có cấu trúc, tìm kiếm ký hiệu, kiểm tra mức độ ảnh hưởng (impact checks), và sử dụng MCP cho việc code bằng AI. Hiện tại công cụ này đã được cài đặt sẵn để chuẩn bị, nhưng nó sẽ hữu ích hơn sau khi khung ứng dụng và các file source code thực tế đã được tạo ra.
 
-## Status On This Machine
+## Trạng thái trên máy hiện tại (Status On This Machine)
 
 ```text
-Installed: yes, global npm package @colbymchenry/codegraph
-Version: 0.9.9
-Verification: codegraph --version, codegraph --help
+Đã cài đặt: có, dưới dạng global npm package @colbymchenry/codegraph
+Phiên bản: 0.9.9
+Cách kiểm tra: codegraph --version, codegraph --help
 ```
 
-The global binary is in `C:\Users\ADMIN\AppData\Roaming\npm`. Add that folder to PATH for direct use in new PowerShell sessions, or prefix the session:
+File thực thi global nằm ở `C:\Users\ADMIN\AppData\Roaming\npm`. Hãy thêm thư mục đó vào biến môi trường PATH để có thể dùng trực tiếp trong các session PowerShell mới, hoặc chạy lệnh sau ở đầu session:
 
 ```powershell
 $env:PATH="$env:APPDATA\npm;$env:PATH"
 ```
 
-## MCP Setup Note
+## Lưu ý về cài đặt MCP (MCP Setup Note)
 
-`codegraph install --target codex --location local` prompted for PATH setup and did not complete non-interactively. No `.codegraph/` project index was created.
+Lệnh `codegraph install --target codex --location local` đã yêu cầu cấu hình PATH và không thể hoàn thành tự động (non-interactively). Chưa có bộ chỉ mục dự án `.codegraph/` nào được tạo.
 
-The safe printed Codex MCP snippet is:
+Cấu hình MCP cho Codex được in ra an toàn là:
 
 ```toml
 [mcp_servers.codegraph]
@@ -28,9 +28,9 @@ command = "codegraph"
 args = ["serve", "--mcp"]
 ```
 
-Add it manually to Codex config only when the team wants CodeGraph MCP enabled.
+Chỉ thêm nó thủ công vào cấu hình Codex khi nào đội thực sự muốn kích hoạt CodeGraph MCP.
 
-## Recommended Commands
+## Các lệnh khuyên dùng (Recommended Commands)
 
 ```powershell
 codegraph --help
@@ -38,7 +38,7 @@ codegraph --version
 codegraph install --print-config codex
 ```
 
-After real app code exists:
+Sau khi ứng dụng đã có code thật:
 
 ```powershell
 codegraph init
@@ -47,20 +47,20 @@ codegraph query "chat route"
 codegraph impact "symbolName"
 ```
 
-## When To Use
+## Khi nào nên dùng (When To Use)
 
-- After implementation phase begins.
-- To inspect call relationships, symbol usage, and blast radius.
-- To prepare AI prompts with concrete related files.
-- To check whether a change crosses module boundaries.
+- Sau khi giai đoạn lập trình bắt đầu.
+- Để kiểm tra các mối quan hệ gọi hàm, sử dụng ký hiệu, và ranh giới ảnh hưởng (blast radius).
+- Để chuẩn bị các prompt AI với danh sách file liên quan cụ thể.
+- Để kiểm tra xem một sự thay đổi có vượt quá ranh giới module hay không.
 
-## Do Not Use For
+## Tuyệt đối không dùng để (Do Not Use For)
 
-- Product decisions.
-- Replacing `docs/api-contract.md`, `ai-context/MODULE_MAP.md`, or context packs.
-- Justifying broad refactors near deadline.
-- Creating implementation code during preparation phase.
+- Đưa ra các quyết định về sản phẩm.
+- Thay thế cho `docs/api-contract.md`, `ai-context/MODULE_MAP.md`, hoặc các context packs.
+- Bào chữa cho việc refactor code quy mô lớn khi gần đến hạn chót (deadline).
+- Sinh code ứng dụng trong giai đoạn chuẩn bị.
 
-## Current Phase Rule
+## Quy tắc cho Giai đoạn hiện tại (Current Phase Rule)
 
-During preparation phase, keep CodeGraph as installed tooling only. Do not run heavy indexing unless the team explicitly asks for it after app code exists.
+Trong suốt giai đoạn chuẩn bị, hãy để CodeGraph đóng vai trò như một công cụ đã được cài đặt. Không chạy các lệnh đánh chỉ mục (indexing) nặng trừ khi team yêu cầu một cách rõ ràng sau khi app đã có code.

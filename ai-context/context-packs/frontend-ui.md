@@ -1,20 +1,20 @@
-# Context Pack: Frontend UI
+# Gói ngữ cảnh: Giao diện Frontend (Frontend UI)
 
-## 1. Purpose
+## 1. Mục đích (Purpose)
 
-Frontend UI is the planned Next.js app that users interact with during demo.
+Giao diện Frontend là ứng dụng Next.js dự kiến mà người dùng sẽ tương tác trong quá trình demo.
 
-It should make AI features easy to understand: upload, chat, report, image analysis, loading states, and clear errors.
+Nó cần phải làm cho các tính năng AI trở nên dễ hiểu: tải lên (upload), nhắn tin (chat), báo cáo (report), phân tích hình ảnh (image analysis), trạng thái tải (loading states), và thông báo lỗi rõ ràng.
 
-## 2. Owner
+## 2. Người phụ trách (Owner)
 
-Owner: Nguyễn Tuấn Tài
+Người phụ trách chính: Nguyễn Tuấn Tài
 
-Support: Lê Thanh Phát, Nguyễn Hữu Tri, Lư Hồng Phúc
+Hỗ trợ: Lê Thanh Phát, Nguyễn Hữu Tri, Lư Hồng Phúc
 
-## 3. Related Files
+## 3. Các file liên quan (Related Files)
 
-Existing files:
+Các file hiện có:
 
 ```text
 docs/api-contract.md
@@ -22,7 +22,7 @@ docs/demo-script.md
 ai-context/MODULE_MAP.md
 ```
 
-Expected future files:
+Các file dự kiến sẽ có:
 
 ```text
 apps/web/app/
@@ -36,38 +36,38 @@ packages/ui/
 packages/shared-types/
 ```
 
-## 4. Data Flow
+## 4. Luồng dữ liệu (Data Flow)
 
 ```text
-User action
-  -> UI component
+Hành động của người dùng
+  -> UI component (Thành phần giao diện)
   -> API client
   -> FastAPI endpoint
-  -> Response or error
-  -> UI state update
+  -> Phản hồi hoặc lỗi
+  -> Cập nhật trạng thái UI
 ```
 
-## 5. Input / Output
+## 5. Đầu vào / Đầu ra (Input / Output)
 
-Input:
+Đầu vào:
 
-* User text.
-* Uploaded file.
-* Button/select actions.
-* Demo sample choices.
+* Văn bản do người dùng nhập.
+* File tải lên.
+* Các hành động qua nút bấm (button) hoặc trình đơn chọn (select).
+* Lựa chọn dữ liệu mẫu để demo.
 
-Output:
+Đầu ra:
 
-* AI answer.
-* Source citations.
-* Upload status.
-* Report content.
-* Image/OCR result.
-* Clear error messages.
+* Câu trả lời của AI.
+* Nguồn trích dẫn (citations).
+* Trạng thái tải lên.
+* Nội dung báo cáo.
+* Kết quả phân tích hình ảnh/OCR.
+* Thông báo lỗi rõ ràng.
 
-## 6. API or Integration Contract
+## 6. Hợp đồng API / Tích hợp (API or Integration Contract)
 
-Frontend must follow:
+Frontend phải tuân thủ theo:
 
 ```text
 docs/api-contract.md
@@ -78,59 +78,59 @@ POST /api/report
 POST /api/analyze-image
 ```
 
-Status: Planned
+Trạng thái: Đang lên kế hoạch (Planned)
 
-## 7. Dependencies
+## 7. Các thành phần phụ thuộc (Dependencies)
 
 * Next.js.
 * Tailwind CSS.
 * shadcn/ui.
 * Lucide icons.
 * Backend API.
-* Shared API types if created later.
+* Shared API types (Kiểu dữ liệu API dùng chung, nếu sau này được tạo).
 
-## 8. Do Not Rules
+## 8. Những điều tuyệt đối không làm (Do Not Rules)
 
-* Do not store backend secrets in frontend.
-* Do not bypass API contract.
-* Do not hide API errors from users.
-* Do not hard-code final demo outputs unless marked as fallback.
-* Do not create page flows that cannot be demoed.
+* Không lưu trữ các mã bảo mật (secrets) của backend ở frontend.
+* Không làm trái với hợp đồng API.
+* Không giấu các lỗi từ API đối với người dùng (phải hiển thị lỗi).
+* Không fix cứng (hard-code) các kết quả demo cuối cùng trừ khi được đánh dấu là phương án dự phòng (fallback).
+* Không tạo ra các luồng trang web (page flows) mà không thể mang đi demo được.
 
-## 9. Common Tasks
+## 9. Các nhiệm vụ chung (Common Tasks)
 
-* Draft UI flow.
-* Build chat screen later.
-* Build upload screen later.
-* Build report/demo screen later.
-* Add loading/error/empty states.
-* Connect API client later.
+* Lên phác thảo luồng UI (Draft UI flow).
+* Xây dựng màn hình chat (làm sau).
+* Xây dựng màn hình upload (làm sau).
+* Xây dựng màn hình report/demo (làm sau).
+* Thêm các trạng thái loading/error/empty.
+* Kết nối API client (làm sau).
 
-## 10. Testing Checklist
+## 10. Danh sách kiểm thử (Testing Checklist)
 
 ```text
-[ ] Main demo flow is visible without explanation
-[ ] Loading state appears during API call
-[ ] Error state is clear
-[ ] Empty state helps user continue
-[ ] Mobile or presentation screen size is acceptable
-[ ] API base URL is configurable
+[ ] Luồng demo chính có thể dễ dàng được nhìn thấy mà không cần phải giải thích thêm
+[ ] Trạng thái Loading hiển thị rõ ràng khi gọi API
+[ ] Trạng thái Error rõ ràng, dễ đọc
+[ ] Trạng thái Empty giúp định hướng cho người dùng đi tiếp
+[ ] Kích thước hiển thị tốt trên thiết bị di động hoặc màn hình máy chiếu
+[ ] Base URL của API có thể cấu hình được
 ```
 
-## 11. Demo Relevance
+## 11. Mức độ quan trọng khi Demo (Demo Relevance)
 
-Very high. The frontend is what judges see first.
+Rất cao. Frontend là thứ đầu tiên mà ban giám khảo nhìn thấy.
 
-Keep the UI simple, stable, and readable on the presentation screen.
+Giữ cho giao diện UI đơn giản, ổn định, và dễ nhìn trên màn hình thuyết trình.
 
-## 12. AI Coding Instruction
+## 12. Hướng dẫn Lập trình với AI (AI Coding Instruction)
 
-When asking AI to work on frontend:
+Khi yêu cầu AI làm việc trên frontend:
 
 ```text
-Include the exact screen/component.
-Include API contract.
-Include loading/error/empty behavior.
-Say whether mock data or real API call is expected.
-Do not allow backend logic in frontend.
+Nêu đích danh màn hình/component cần làm.
+Đưa kèm hợp đồng API (API contract).
+Kèm theo hành vi mong muốn cho các trạng thái loading/error/empty.
+Nêu rõ là dùng dữ liệu giả (mock data) hay gọi API thật.
+Không cho phép AI đưa logic của backend vào frontend.
 ```

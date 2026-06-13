@@ -1,21 +1,21 @@
-# Codebase Context Tools Setup
+# Cài đặt Các Công cụ Ngữ cảnh Codebase (Codebase Context Tools Setup)
 
-This setup is for preparation/tooling/documentation only. It does not scaffold app code and does not install frontend/backend app dependencies.
+Cấu hình này chỉ dành cho mục đích chuẩn bị/cài đặt công cụ/tài liệu. Quá trình này không khởi tạo khung ứng dụng (scaffold) và cũng không cài đặt bất kỳ thư viện phụ thuộc nào cho frontend hay backend.
 
-## Environment Detected
+## Môi trường Đã phát hiện (Environment Detected)
 
 ```text
-Current directory: D:\SGU\Challenge\Team_VNAIChallenge_DN2026\vnai-hackathon-starter
+Thư mục hiện tại: D:\SGU\Challenge\Team_VNAIChallenge_DN2026\vnai-hackathon-starter
 Node: v22.20.0
 npm: 11.16.0
 Git: git version 2.49.0.windows.1
 Python: Python 3.13.9
-Repomix: 1.14.1 via npx/global package; direct PATH command was not visible until npm global bin was added to PATH for the session
-CodeGraph: 0.9.9 via global package; direct PATH command needs C:\Users\ADMIN\AppData\Roaming\npm on PATH
-GitNexus: 1.6.7 via npx
+Repomix: 1.14.1 qua npx/global package; lệnh PATH trực tiếp chưa hiển thị cho đến khi thêm bin toàn cục của npm vào PATH
+CodeGraph: 0.9.9 qua global package; lệnh PATH trực tiếp cần C:\Users\ADMIN\AppData\Roaming\npm có trong biến PATH
+GitNexus: 1.6.7 qua npx
 ```
 
-Detected executable locations:
+Vị trí của các file thực thi đã tìm thấy:
 
 ```text
 node: C:\Program Files\nodejs\node.exe
@@ -24,15 +24,15 @@ git: C:\Program Files\Git\bin\git.exe, C:\Program Files\Git\cmd\git.exe
 npm global prefix: C:\Users\ADMIN\AppData\Roaming\npm
 ```
 
-## Installation Result
+## Kết quả Cài đặt (Installation Result)
 
-| Tool | Result | Verification | Notes |
-| --- | --- | --- | --- |
-| Repomix | Installed globally with `npm install -g repomix`; `npx repomix@latest` also works | `npx repomix@latest --version` returned `1.14.1`; session PATH-adjusted `repomix --version` returned `1.14.1` | Current PowerShell process did not initially include npm global bin, so use `npx repomix@latest` or add `C:\Users\ADMIN\AppData\Roaming\npm` to PATH. |
-| CodeGraph | Installed globally with `npm install -g @colbymchenry/codegraph` | session PATH-adjusted `codegraph --version` returned `0.9.9`; `codegraph --help` works | `codegraph install --target codex --location local` prompted for PATH setup and did not complete non-interactively. `codegraph install --print-config codex` printed the Codex MCP snippet only. |
-| GitNexus | Used through `npx --yes gitnexus` | `npx --yes gitnexus --help` works; npm package metadata shows `gitnexus` version `1.6.7` | `npx --yes gitnexus analyze` completed and indexed the Git root `D:\SGU\Challenge\Team_VNAIChallenge_DN2026`, not only this subfolder. It created Git-root `.gitnexus/`, `.claude/`, `AGENTS.md`, and `CLAUDE.md`. |
+| Công cụ   | Kết quả                                                                                  | Kiểm chứng                                                                                                        | Ghi chú                                                                                                                                                                                                                                       |
+| --------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Repomix   | Đã cài đặt global bằng `npm install -g repomix`; `npx repomix@latest` cũng hoạt động tốt | Lệnh `npx repomix@latest --version` trả về `1.14.1`; Lệnh `repomix --version` (khi đã chỉnh PATH) trả về `1.14.1` | Tiến trình PowerShell hiện tại ban đầu chưa có đường dẫn npm global bin, do đó hãy dùng `npx repomix@latest` hoặc thêm `C:\Users\ADMIN\AppData\Roaming\npm` vào PATH.                                                                         |
+| CodeGraph | Đã cài đặt global bằng `npm install -g @colbymchenry/codegraph`                          | Lệnh `codegraph --version` (khi đã chỉnh PATH) trả về `0.9.9`; `codegraph --help` hoạt động                       | Lệnh `codegraph install --target codex --location local` đã hỏi cấu hình PATH và không hoàn thành được tự động. `codegraph install --print-config codex` chỉ in ra đoạn cấu hình MCP Codex.                                                   |
+| GitNexus  | Sử dụng qua `npx --yes gitnexus`                                                         | `npx --yes gitnexus --help` hoạt động; siêu dữ liệu npm package hiển thị version `gitnexus` là `1.6.7`            | `npx --yes gitnexus analyze` đã hoàn thành và đánh chỉ mục thư mục Git gốc `D:\SGU\Challenge\Team_VNAIChallenge_DN2026`, chứ không chỉ trong thư mục con này. Nó đã tạo các file `.gitnexus/`, `.claude/`, `AGENTS.md`, và `CLAUDE.md` ở gốc. |
 
-## Commands Run Successfully
+## Các lệnh đã chạy thành công (Commands Run Successfully)
 
 ```powershell
 pwd
@@ -55,13 +55,13 @@ npx --yes gitnexus --help
 npx --yes gitnexus analyze
 ```
 
-For direct global CLIs in this shell, this session-local PATH prefix was used:
+Đối với các CLI global trực tiếp trong shell hiện tại, dòng cấu hình biến môi trường này đã được sử dụng:
 
 ```powershell
 $env:PATH="$env:APPDATA\npm;$env:PATH"
 ```
 
-## Commands Failed Or Skipped
+## Các lệnh bị lỗi hoặc bị bỏ qua (Commands Failed Or Skipped)
 
 ```powershell
 repomix --version
@@ -69,13 +69,13 @@ codegraph --version
 npx gitnexus --help
 ```
 
-Initial direct `repomix` and `codegraph` checks failed because npm global bin was not on PATH in the current shell. Initial `npx gitnexus --help` failed in sandbox/offline cache mode, then timed out once without `--yes`; `npx --yes gitnexus --help` succeeded.
+Các lệnh `repomix` và `codegraph` trực tiếp ban đầu bị lỗi do biến môi trường PATH chưa được cập nhật thư mục npm global bin trong shell. Lệnh `npx gitnexus --help` ban đầu lỗi vì cache offline, sau đó bị quá thời gian, dùng lệnh có thêm `--yes` (`npx --yes gitnexus --help`) thì đã thành công.
 
 ```powershell
 codegraph install --target codex --location local
 ```
 
-This command prompted for PATH installation and did not complete a visible project-local config write. To avoid silent global or editor config changes, only the printed Codex config snippet was captured:
+Lệnh này bắt đầu quá trình tương tác hỏi về biến môi trường PATH và không sinh ra file cấu hình `local` trong project. Để tránh tự ý chỉnh sửa file cấu hình global một cách lẳng lặng, tôi chỉ lưu lại đoạn mã in cấu hình Codex được in ra:
 
 ```toml
 [mcp_servers.codegraph]
@@ -83,18 +83,18 @@ command = "codegraph"
 args = ["serve", "--mcp"]
 ```
 
-## Usage Rules
+## Quy tắc sử dụng (Usage Rules)
 
-- Repomix is safe to use now because the repo already has `docs/` and `ai-context/`.
-- CodeGraph is installed now, but it will be more useful after real app code exists.
-- GitNexus can be used for visual repo exploration and onboarding.
-- Markdown docs and context packs remain the source of truth.
-- Do not commit generated `.codegraph`, `.gitnexus`, or `repomix-*.md` outputs.
-- Do not treat GitNexus/CodeGraph output as a replacement for `docs/`, `ai-context/`, code review, or explicit team decisions.
+- Repomix có thể sử dụng an toàn ngay bây giờ do repo đã chứa thư mục `docs/` và `ai-context/`.
+- CodeGraph đã được cài đặt, nhưng nó sẽ hữu ích hơn khi app bắt đầu có mã nguồn thật.
+- GitNexus có thể dùng để trực quan hóa cấu trúc và hỗ trợ thành viên mới (onboarding).
+- Các file tài liệu Markdown và các gói ngữ cảnh (context packs) luôn luôn là Nguồn chân lý (Source of truth).
+- Không commit các file sinh tự động như `.codegraph`, `.gitnexus`, hoặc `repomix-*.md`.
+- Đừng coi kết quả trả ra từ GitNexus/CodeGraph là sự thay thế cho thư mục `docs/`, `ai-context/`, bước duyệt code (code review), hay các quyết định rõ ràng của nhóm.
 
-## Recommended Commands
+## Các lệnh khuyên dùng (Recommended Commands)
 
-Use global commands after adding npm global bin to PATH, or use the `npx` Repomix fallback.
+Sử dụng các lệnh global sau khi đã cập nhật biến môi trường PATH (thêm npm global bin), hoặc dùng `npx` như dự phòng cho Repomix.
 
 ```powershell
 repomix --style markdown --include "docs/**,ai-context/**" --output repomix-docs-context.md
@@ -104,7 +104,7 @@ npx --yes gitnexus analyze
 codegraph --help
 ```
 
-Fallback Repomix commands:
+Lệnh Repomix dự phòng:
 
 ```powershell
 npx repomix@latest --style markdown --include "docs/**,ai-context/**" --output repomix-docs-context.md
@@ -112,8 +112,8 @@ npx repomix@latest --style markdown --include "docs/**" --output repomix-docs-on
 npx repomix@latest --style markdown --include "ai-context/**" --output repomix-ai-context-only.md
 ```
 
-## Manual Actions Required
+## Các thao tác cần làm thủ công (Manual Actions Required)
 
-1. Decide whether to keep GitNexus-generated Git-root files: `.gitnexus/`, `.claude/`, `AGENTS.md`, `CLAUDE.md`.
-2. If direct global CLIs should work in new PowerShell sessions, add `C:\Users\ADMIN\AppData\Roaming\npm` to the user PATH.
-3. If CodeGraph MCP should be enabled for Codex, add the printed snippet to `C:\Users\ADMIN\.codex\config.toml` or rerun the installer intentionally with the desired location and target.
+1. Quyết định xem có nên giữ lại các file do GitNexus tự sinh ra tại thư mục Git gốc hay không: `.gitnexus/`, `.claude/`, `AGENTS.md`, `CLAUDE.md`.
+2. Nếu muốn gọi các công cụ trực tiếp tại mọi phiên làm việc mới của PowerShell, bạn hãy thêm đường dẫn `C:\Users\ADMIN\AppData\Roaming\npm` vào biến hệ thống PATH.
+3. Nếu bạn muốn Codex dùng CodeGraph MCP, hãy sao chép đoạn cấu hình (đã nêu trên) vào file `C:\Users\ADMIN\.codex\config.toml` hoặc chạy lại trình cài đặt bằng tay với vị trí và mục tiêu mong muốn.

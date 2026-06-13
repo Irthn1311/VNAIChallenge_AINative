@@ -1,20 +1,20 @@
-# Context Pack: Upload Document
+# Gói ngữ cảnh: Tải lên Tài liệu (Upload Document)
 
-## 1. Purpose
+## 1. Mục đích (Purpose)
 
-Upload Document receives user files, validates them, stores them, and prepares content for RAG/report workflows.
+Tải lên Tài liệu là module nhận các file từ người dùng, kiểm tra tính hợp lệ, lưu trữ, và chuẩn bị nội dung để phục vụ cho các luồng RAG hoặc báo cáo.
 
-Preparation goal: define expected behavior before real implementation.
+Mục tiêu giai đoạn chuẩn bị: định nghĩa hành vi dự kiến trước khi tiến hành code thật.
 
-## 2. Owner
+## 2. Người phụ trách (Owner)
 
-Owner: Nguyễn Tuấn Tài
+Người phụ trách chính: Nguyễn Tuấn Tài
 
-Support: Lư Hồng Phúc, Nguyễn Hữu Tri, Lê Thanh Phát
+Hỗ trợ: Lư Hồng Phúc, Nguyễn Hữu Tri, Lê Thanh Phát
 
-## 3. Related Files
+## 3. Các file liên quan (Related Files)
 
-Existing files:
+Các file hiện có:
 
 ```text
 docs/api-contract.md
@@ -23,7 +23,7 @@ ai-context/MODULE_MAP.md
 ai-context/context-packs/chat-rag.md
 ```
 
-Expected future files:
+Các file dự kiến sẽ có:
 
 ```text
 apps/api/routes/upload.py
@@ -37,31 +37,31 @@ apps/web/app/upload/page.tsx
 data/samples/documents/
 ```
 
-## 4. Data Flow
+## 4. Luồng dữ liệu (Data Flow)
 
 ```text
-User selects file
-  -> Next.js upload UI
-  -> POST /api/upload
-  -> FastAPI upload route
-  -> Validate file type and size
-  -> Store file or metadata
-  -> Extract text if supported
-  -> Optional chunk + embed + index
-  -> Return document_id / collection_id / status
+Người dùng chọn file
+  -> UI tải lên của Next.js
+  -> Gọi POST /api/upload
+  -> Route upload của FastAPI
+  -> Kiểm tra định dạng và dung lượng file
+  -> Lưu file hoặc siêu dữ liệu (metadata)
+  -> Trích xuất văn bản nếu được hỗ trợ
+  -> (Tùy chọn) Cắt nhỏ (chunk) + Nhúng (embed) + Đánh chỉ mục (index)
+  -> Trả về document_id / collection_id / status
 ```
 
-## 5. Input / Output
+## 5. Đầu vào / Đầu ra (Input / Output)
 
-Input:
+Đầu vào:
 
 ```text
 multipart/form-data
-file: uploaded file
-collection_id: optional string
+file: file được tải lên
+collection_id: chuỗi ký tự (không bắt buộc)
 ```
 
-Output:
+Đầu ra:
 
 ```json
 {
@@ -74,7 +74,7 @@ Output:
 }
 ```
 
-## 6. API or Integration Contract
+## 6. Hợp đồng API / Tích hợp (API or Integration Contract)
 
 Endpoint:
 
@@ -82,84 +82,84 @@ Endpoint:
 POST /api/upload
 ```
 
-Source of truth:
+Nguồn chân lý (Source of truth):
 
 ```text
 docs/api-contract.md
 ```
 
-Status: Planned
+Trạng thái: Đang lên kế hoạch (Planned)
 
-## 7. Dependencies
+## 7. Các thành phần phụ thuộc (Dependencies)
 
-* File validation.
-* Storage path or Supabase Storage.
-* Text extraction.
-* Optional chunking.
-* Optional embedding.
-* Chat RAG module.
+* Hàm kiểm tra tính hợp lệ của file.
+* Đường dẫn lưu trữ hoặc Supabase Storage.
+* Tính năng trích xuất văn bản.
+* (Tùy chọn) Thuật toán cắt nhỏ văn bản (chunking).
+* (Tùy chọn) Thuật toán tạo vector nhúng (embedding).
+* Module Chat RAG.
 
-## 8. Do Not Rules
+## 8. Những điều tuyệt đối không làm (Do Not Rules)
 
-* Do not accept unlimited file size.
-* Do not silently process unsupported file types.
-* Do not hard-code local absolute paths.
-* Do not store secrets in uploaded data.
-* Do not block forever if indexing fails.
-* Do not change upload response shape without updating API contract.
+* Không cho phép tải lên file có kích thước không giới hạn.
+* Không âm thầm xử lý các định dạng file không được hỗ trợ.
+* Không fix cứng (hard-code) các đường dẫn tuyệt đối (absolute paths) trên máy local.
+* Không lưu trữ các thông tin bảo mật (secrets) trong dữ liệu được tải lên.
+* Không khóa luồng xử lý vĩnh viễn (block forever) nếu việc đánh chỉ mục (indexing) bị lỗi.
+* Không thay đổi cấu trúc dữ liệu trả về của API upload mà không cập nhật tài liệu hợp đồng API.
 
-## 9. Common Tasks
+## 9. Các nhiệm vụ chung (Common Tasks)
 
-* Define supported file types.
-* Define max file size.
-* Prepare sample files.
-* Implement upload route later.
-* Implement text extraction later.
-* Connect to RAG indexing later.
-* Add upload UI later.
+* Định nghĩa các định dạng file được hỗ trợ.
+* Định nghĩa dung lượng file tối đa.
+* Chuẩn bị các file mẫu (sample files).
+* Triển khai route upload (làm sau).
+* Triển khai tính năng trích xuất văn bản (làm sau).
+* Kết nối với tính năng đánh chỉ mục RAG (làm sau).
+* Thêm UI tải lên (làm sau).
 
-## 10. Testing Checklist
+## 10. Danh sách kiểm thử (Testing Checklist)
 
 ```text
-[ ] Valid TXT upload works
-[ ] Valid PDF upload works if parser is ready
-[ ] Unsupported file type is rejected
-[ ] Empty file is rejected
-[ ] Response includes document_id
-[ ] Response includes collection_id
-[ ] Frontend shows success state
-[ ] Frontend shows error state
+[ ] Tải lên file TXT hợp lệ thành công
+[ ] Tải lên file PDF hợp lệ thành công nếu trình đọc file (parser) đã sẵn sàng
+[ ] Định dạng file không được hỗ trợ sẽ bị từ chối
+[ ] File rỗng sẽ bị từ chối
+[ ] Dữ liệu trả về (response) có chứa document_id
+[ ] Dữ liệu trả về có chứa collection_id
+[ ] Frontend hiển thị trạng thái thành công
+[ ] Frontend hiển thị trạng thái báo lỗi
 ```
 
-## 11. Demo Relevance
+## 11. Mức độ quan trọng khi Demo (Demo Relevance)
 
-Medium to high. Upload is impressive when stable, but risky if parser or storage fails.
+Trung bình đến cao. Việc tải lên thành công sẽ rất ấn tượng, nhưng cũng đầy rủi ro nếu bộ đọc file (parser) hoặc hệ thống lưu trữ (storage) gặp trục trặc.
 
-Prepare:
+Cần chuẩn bị:
 
-* 1-2 stable sample documents.
-* Pre-indexed fallback document.
-* Screenshot/video of successful upload.
+* 1 đến 2 tài liệu mẫu hoạt động ổn định.
+* Tài liệu dự phòng đã được đánh chỉ mục sẵn (Pre-indexed fallback document).
+* Hình ảnh hoặc video quay lại cảnh upload thành công.
 
-## 12. AI Coding Instruction
+## 12. Hướng dẫn Lập trình với AI (AI Coding Instruction)
 
-When asking AI to work on this module, include:
+Khi yêu cầu AI làm việc với module này, cần phải cung cấp các thông tin sau:
 
 ```text
-Supported file types:
-Max file size:
-Storage method:
-Expected API response:
-Related RAG behavior:
-Testing steps:
+Định dạng file hỗ trợ (Supported file types):
+Dung lượng tối đa (Max file size):
+Phương pháp lưu trữ (Storage method):
+Dữ liệu API trả về mong đợi (Expected API response):
+Hành vi liên quan tới RAG (Related RAG behavior):
+Các bước kiểm thử (Testing steps):
 ```
 
-Good prompt:
+Ví dụ một prompt tốt:
 
 ```text
-Implement POST /api/upload according to docs/api-contract.md.
-Support .txt first.
-Return document_id, collection_id, filename, file_type, status, and message.
-Do not implement PDF parsing yet.
-Do not modify chat code.
+Hãy triển khai endpoint POST /api/upload tuân theo docs/api-contract.md.
+Hỗ trợ định dạng .txt trước.
+Trả về document_id, collection_id, filename, file_type, status, và message.
+Đừng triển khai tính năng đọc file PDF lúc này.
+Không chỉnh sửa các đoạn code liên quan đến chat.
 ```

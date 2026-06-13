@@ -1,17 +1,17 @@
-# GitNexus Guide
+# Hướng dẫn GitNexus (GitNexus Guide)
 
-GitNexus is for visual repo exploration, onboarding, and graph-powered understanding. In this project it should support navigation and review, not replace the Markdown docs.
+GitNexus dùng để khám phá repo trực quan, hướng dẫn thành viên mới, và hiểu cấu trúc thông qua đồ thị (graph). Trong dự án này, nó nên hỗ trợ điều hướng và review, chứ không thay thế cho các tài liệu Markdown.
 
-## Status On This Machine
+## Trạng thái trên máy hiện tại (Status On This Machine)
 
 ```text
-Install method: npx --yes gitnexus
-Package version: 1.6.7
-Help verification: npx --yes gitnexus --help
-Analyze verification: npx --yes gitnexus analyze
+Phương pháp cài đặt: npx --yes gitnexus
+Phiên bản package: 1.6.7
+Kiểm tra trợ giúp: npx --yes gitnexus --help
+Kiểm tra phân tích: npx --yes gitnexus analyze
 ```
 
-`npx --yes gitnexus analyze` completed successfully:
+Lệnh `npx --yes gitnexus analyze` đã hoàn thành thành công:
 
 ```text
 Repository indexed successfully
@@ -19,11 +19,11 @@ Repository indexed successfully
 Indexed path: D:\SGU\Challenge\Team_VNAIChallenge_DN2026
 ```
 
-Important: GitNexus detected and indexed the Git root, not only `vnai-hackathon-starter`.
+Lưu ý quan trọng: GitNexus đã phát hiện và đánh chỉ mục thư mục gốc (Git root), chứ không chỉ thư mục `vnai-hackathon-starter`.
 
-## Generated Files Observed
+## Quan sát các file được sinh ra (Generated Files Observed)
 
-GitNexus generated these untracked Git-root files:
+GitNexus đã tạo ra các file không được theo dõi (untracked) này ở thư mục gốc:
 
 ```text
 D:\SGU\Challenge\Team_VNAIChallenge_DN2026\.gitnexus\
@@ -32,9 +32,9 @@ D:\SGU\Challenge\Team_VNAIChallenge_DN2026\AGENTS.md
 D:\SGU\Challenge\Team_VNAIChallenge_DN2026\CLAUDE.md
 ```
 
-The Git-root `.gitignore` already ignores `.gitnexus/`. Review whether the team wants to keep or remove the generated `.claude/`, `AGENTS.md`, and `CLAUDE.md` files.
+File `.gitignore` ở thư mục gốc đã có dòng loại trừ thư mục `.gitnexus/`. Hãy xem xét xem team muốn giữ lại hay xóa bỏ các file `.claude/`, `AGENTS.md`, và `CLAUDE.md` vừa được tạo ra.
 
-## Recommended Commands
+## Các lệnh khuyên dùng (Recommended Commands)
 
 ```powershell
 npx --yes gitnexus --help
@@ -44,34 +44,34 @@ npx --yes gitnexus list
 npx --yes gitnexus serve
 ```
 
-Use from the Git root if you want full-repo analysis:
+Sử dụng lệnh từ thư mục Git gốc nếu bạn muốn phân tích toàn bộ repo:
 
 ```powershell
 cd D:\SGU\Challenge\Team_VNAIChallenge_DN2026
 npx --yes gitnexus analyze
 ```
 
-Use from this project folder only when you are comfortable with GitNexus still resolving the parent Git root.
+Chỉ chạy GitNexus từ trong thư mục dự án này nếu bạn đồng ý với việc GitNexus vẫn tự động tìm lên thư mục Git gốc (parent Git root).
 
-## When To Use
+## Khi nào nên dùng (When To Use)
 
-- Onboarding a new member.
-- Explaining repo structure during team planning.
-- Visualizing what a PR touches.
-- Helping reviewers find relevant docs and modules.
+- Hướng dẫn (Onboarding) thành viên mới.
+- Giải thích cấu trúc repo trong quá trình team lên kế hoạch.
+- Trực quan hóa xem một Pull Request (PR) đang thay đổi những gì.
+- Giúp reviewer tìm thấy các tài liệu và module liên quan.
 
-## Do Not Use For
+## Tuyệt đối không dùng để (Do Not Use For)
 
-- Deciding API shape instead of `docs/api-contract.md`.
-- Replacing code review or source-of-truth docs.
-- Storing secrets or private data.
-- Generating app implementation during preparation phase.
+- Quyết định hình dạng API thay cho file `docs/api-contract.md`.
+- Thay thế cho việc review code hoặc tài liệu chân lý nguồn (source-of-truth docs).
+- Lưu trữ secrets hoặc dữ liệu cá nhân.
+- Sinh mã nguồn ứng dụng trong giai đoạn chuẩn bị.
 
-## Tool Comparison
+## So sánh các công cụ (Tool Comparison)
 
-| Tool | Best for |
+| Công cụ | Tốt nhất cho |
 | --- | --- |
-| GitNexus | Visual repo exploration, onboarding, repo graph |
-| CodeGraph | Structured code relationships and MCP support |
-| Repomix | Packaging selected repo context for LLMs |
-| Markdown docs | Source of truth for phase, contracts, rules, and roles |
+| GitNexus | Khám phá repo trực quan, hướng dẫn, sơ đồ repo |
+| CodeGraph | Các mối quan hệ code có cấu trúc và hỗ trợ MCP |
+| Repomix | Đóng gói ngữ cảnh repo được chọn cho LLMs |
+| Markdown docs | Nguồn chân lý (Source of truth) cho giai đoạn, hợp đồng, luật code, và vai trò |

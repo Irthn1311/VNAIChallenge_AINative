@@ -1,76 +1,75 @@
 # CODING_RULES.md
 
-These rules guide future implementation. During preparation phase, apply them to documentation, contracts, and context packs.
+Những quy tắc này dùng để định hướng cho quá trình lập trình (implementation) sau này. Trong giai đoạn chuẩn bị (preparation phase), hãy áp dụng chúng cho tài liệu (documentation), các hợp đồng (contracts) và các gói ngữ cảnh (context packs).
 
 ---
 
-## 1. Preparation Phase Rules
+## 1. Quy tắc cho Giai đoạn Chuẩn bị (Preparation Phase Rules)
 
-1. Do not scaffold Next.js or FastAPI until explicitly approved.
-2. Do not install packages.
-3. Keep changes focused on Markdown documentation.
-4. Preserve useful existing content.
-5. Mark future code files as `expected future file`.
-6. Keep docs practical for a student hackathon team.
-7. Do not write fake implementation status.
-
----
-
-## 2. General Coding Rules
-
-1. Keep code simple and readable.
-2. Prefer a working MVP over complex architecture.
-3. Do not create duplicate utilities or duplicate services.
-4. Do not hard-code secrets.
-5. Use environment variables for credentials and URLs.
-6. Keep API response formats stable.
-7. Update documentation when changing API contracts.
-8. Add error handling for demo-critical flows.
-9. Test manually before opening a pull request.
-10. Do not commit broken code to `main`.
+1. Không khởi tạo (scaffold) Next.js hoặc FastAPI cho đến khi được phê duyệt rõ ràng.
+2. Không cài đặt các thư viện/packages.
+3. Chỉ tập trung thay đổi vào các tài liệu Markdown.
+4. Giữ lại những nội dung hiện có nếu chúng hữu ích.
+5. Đánh dấu các file code trong tương lai là `expected future file`.
+6. Giữ cho tài liệu thực tế và phù hợp với một đội sinh viên thi hackathon.
+7. Không viết khống trạng thái hoàn thành của tính năng (fake implementation status).
 
 ---
 
-## 3. Frontend Rules
+## 2. Quy tắc Code Chung (General Coding Rules)
 
-1. Use Next.js conventions.
-2. Keep UI components focused.
-3. Use loading, empty, and error states.
-4. Do not put backend business logic in frontend.
-5. Do not expose secret API keys.
-6. Match API response types defined in `docs/api-contract.md`.
-
----
-
-## 4. Backend Rules
-
-1. Use FastAPI routes clearly.
-2. Keep route handlers thin when possible.
-3. Put business logic in services.
-4. Validate request payloads.
-5. Return documented response structures.
-6. Add `/health` endpoint for deployment checks.
-7. Do not bypass service layers.
-8. Do not put frontend-specific logic in backend.
+1. Giữ cho code đơn giản và dễ đọc.
+2. Ưu tiên một phiên bản MVP chạy được hơn là một kiến trúc phức tạp.
+3. Không tạo ra các hàm tiện ích (utilities) hoặc các dịch vụ (services) trùng lặp.
+4. Không fix cứng (hard-code) các thông tin bảo mật (secrets).
+5. Sử dụng các biến môi trường (environment variables) cho các thông tin xác thực và URL.
+6. Giữ cho định dạng dữ liệu trả về (API response formats) ổn định.
+7. Cập nhật tài liệu khi thay đổi các hợp đồng API (API contracts).
+8. Thêm xử lý lỗi (error handling) cho các luồng quan trọng khi demo (demo-critical flows).
+9. Tự kiểm thử (manual test) trước khi mở một pull request.
+10. Không commit code đang bị lỗi lên nhánh `main`.
 
 ---
 
-## 5. AI / RAG Rules
+## 3. Quy tắc cho Frontend (Frontend Rules)
 
-1. RAG responses should include sources when possible.
-2. Do not hallucinate unsupported claims.
-3. If answer is not found in data, say so clearly.
-4. Keep prompts versioned in `packages/prompts` or backend prompt files.
-5. Keep retrieval, prompting, and generation logically separated.
-6. Add evaluation questions in `data/eval`.
+1. Tuân thủ các quy ước của Next.js.
+2. Giữ cho các UI component tập trung vào một nhiệm vụ (focused).
+3. Sử dụng đầy đủ các trạng thái tải (loading), trống (empty), và lỗi (error).
+4. Không đưa logic nghiệp vụ (business logic) của backend vào frontend.
+5. Không để lộ các khóa API bảo mật (secret API keys).
+6. Khớp với các kiểu dữ liệu trả về của API được định nghĩa trong `docs/api-contract.md`.
 
 ---
 
-## 6. Demo Rules
+## 4. Quy tắc cho Backend (Backend Rules)
 
-1. Demo path must be tested before presentation.
-2. Use stable sample data.
-3. Prepare cached response or screenshot fallback.
-4. Do not refactor near final demo time.
-5. Do not add large features after feature freeze.
+1. Khai báo các route FastAPI một cách rõ ràng.
+2. Cố gắng giữ cho các hàm xử lý route (route handlers) càng gọn nhẹ càng tốt.
+3. Đặt logic nghiệp vụ vào phần dịch vụ (services).
+4. Kiểm tra tính hợp lệ của dữ liệu đầu vào (request payloads).
+5. Trả về cấu trúc response đúng như tài liệu đã mô tả.
+6. Thêm endpoint `/health` để kiểm tra trạng thái triển khai (deployment checks).
+7. Không bỏ qua (bypass) các tầng dịch vụ (service layers).
+8. Không đặt các logic đặc thù của frontend vào backend.
 
+---
+
+## 5. Quy tắc cho AI / RAG (AI / RAG Rules)
+
+1. Các câu trả lời của hệ thống RAG phải kèm theo nguồn trích dẫn (sources) nếu có thể.
+2. Không để AI bịa đặt (hallucinate) các thông tin không được hỗ trợ.
+3. Nếu không tìm thấy câu trả lời trong dữ liệu, hãy nói rõ điều đó.
+4. Quản lý phiên bản (versioned) của các prompt trong `packages/prompts` hoặc trong các file prompt của backend.
+5. Tách biệt logic của quá trình truy xuất (retrieval), tạo prompt (prompting), và sinh văn bản (generation).
+6. Thêm các câu hỏi dùng để đánh giá (evaluation questions) vào thư mục `data/eval`.
+
+---
+
+## 6. Quy tắc khi Demo (Demo Rules)
+
+1. Luồng demo phải được kiểm thử cẩn thận trước khi thuyết trình.
+2. Sử dụng dữ liệu mẫu (sample data) ổn định.
+3. Chuẩn bị sẵn dữ liệu phản hồi được lưu tạm (cached response) hoặc ảnh chụp màn hình (screenshot) làm phương án dự phòng (fallback).
+4. Không refactor code khi đã cận kề thời gian demo.
+5. Không thêm các tính năng lớn sau khi đã đóng băng tính năng (feature freeze).

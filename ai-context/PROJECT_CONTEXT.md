@@ -1,94 +1,93 @@
 # PROJECT_CONTEXT.md
 
-## Project Name
+## Tên Dự án (Project Name)
 
 VNAI Hackathon Starter
 
 ---
 
-## Current Phase
+## Giai đoạn Hiện tại (Current Phase)
 
-Preparation phase.
+Giai đoạn chuẩn bị (Preparation phase).
 
-The repository is being used to define documentation, workflow, module contracts, context packs, and planned API contracts before real coding starts.
+Kho lưu trữ (repository) này đang được sử dụng để định nghĩa hệ thống tài liệu, quy trình làm việc, hợp đồng module (module contracts), các gói ngữ cảnh (context packs), và các hợp đồng API (API contracts) dự kiến trước khi bắt đầu code thật.
 
-Do not assume app code exists yet.
-
----
-
-## Purpose
-
-This repository prepares a flexible foundation for building AI-native MVPs during Vietnam AI Innovation Challenge 2026.
-
-The goal is not to pre-build one fixed product. The goal is to help the team move quickly once the real problem statement is known.
+Đừng mặc định rằng ứng dụng đã có sẵn code.
 
 ---
 
-## Product Patterns
+## Mục đích (Purpose)
 
-The starter should support these likely hackathon patterns:
+Kho lưu trữ này chuẩn bị một nền tảng linh hoạt để xây dựng các sản phẩm AI-native MVP trong suốt cuộc thi Vietnam AI Innovation Challenge 2026.
 
-1. AI Knowledge Copilot
-   * RAG over documents.
-   * Answers with sources.
-   * Checklist or summary generation.
-
-2. AI Business Operation Copilot
-   * Analyze business data.
-   * Summarize customers, orders, operations, or cases.
-   * Recommend next actions.
-
-3. AI Document / OCR / CV Copilot
-   * Upload image or document.
-   * Extract text or structured fields.
-   * Return explanation and confidence.
-
-4. AI Report Assistant
-   * Generate report from uploaded data.
-   * Display dashboard or insight cards.
-   * Export or present findings.
+Mục tiêu không phải là xây sẵn một sản phẩm cố định. Mục tiêu là giúp cả đội có thể triển khai công việc một cách nhanh chóng ngay khi đề bài thực tế được công bố.
 
 ---
 
-## Planned Architecture
+## Các Mô hình Sản phẩm (Product Patterns)
+
+Dự án starter này hỗ trợ các mô hình có khả năng cao sẽ gặp trong hackathon:
+
+1. Trợ lý Tri thức AI (AI Knowledge Copilot)
+   * Hệ thống RAG trên các tài liệu.
+   * Trả lời kèm theo nguồn trích dẫn.
+   * Tạo ra các checklist hoặc đoạn tóm tắt.
+
+2. Trợ lý Vận hành Doanh nghiệp AI (AI Business Operation Copilot)
+   * Phân tích dữ liệu doanh nghiệp.
+   * Tóm tắt thông tin khách hàng, đơn hàng, hoạt động hoặc các case study.
+   * Đề xuất các hành động tiếp theo.
+
+3. Trợ lý Tài liệu / OCR / CV AI (AI Document / OCR / CV Copilot)
+   * Tải lên hình ảnh hoặc tài liệu.
+   * Trích xuất văn bản hoặc các trường dữ liệu có cấu trúc.
+   * Trả về lời giải thích và độ tin cậy (confidence).
+
+4. Trợ lý Báo cáo AI (AI Report Assistant)
+   * Tạo báo cáo từ dữ liệu được tải lên.
+   * Hiển thị bảng điều khiển (dashboard) hoặc các thẻ thông tin chi tiết (insight cards).
+   * Xuất file hoặc trình bày các kết quả tìm được.
+
+---
+
+## Kiến trúc Dự kiến (Planned Architecture)
 
 ```text
 Next.js Frontend
   -> FastAPI Backend
-  -> AI / RAG / CV Services
+  -> Các dịch vụ AI / RAG / CV Services
   -> Supabase PostgreSQL + pgvector + Storage
 ```
 
-Frontend and backend must integrate through `docs/api-contract.md`.
+Frontend và backend phải được tích hợp thông qua `docs/api-contract.md`.
 
 ---
 
-## Main Folders
+## Các Thư mục Chính (Main Folders)
 
 ```text
-apps/web       - planned Next.js frontend
-apps/api       - planned FastAPI backend
-packages       - future shared packages
-docs           - human-readable team documentation
-ai-context     - AI-readable project context
-data           - demo/evaluation/seed data
-scripts        - utility scripts
+apps/web       - frontend Next.js dự kiến
+apps/api       - backend FastAPI dự kiến
+packages       - các gói dùng chung trong tương lai
+docs           - tài liệu để con người (thành viên đội) đọc
+ai-context     - ngữ cảnh dự án để AI đọc
+data           - dữ liệu demo/đánh giá/seed
+scripts        - các đoạn script tiện ích
 ```
 
 ---
 
-## Development Principle
+## Nguyên tắc Phát triển (Development Principle)
 
-AI coding is an accelerator, not a replacement for engineering judgment.
+Viết code bằng AI là một công cụ tăng tốc, không phải để thay thế phán đoán kỹ thuật của con người.
 
-Every AI task should include:
+Mọi task làm việc với AI phải bao gồm:
 
-* Related module.
-* Related files.
-* API contract.
-* Context pack.
-* Constraints.
-* Testing checklist.
+* Module liên quan.
+* Các file liên quan (Related files).
+* Hợp đồng API (API contract).
+* Gói ngữ cảnh (Context pack).
+* Các ràng buộc (Constraints).
+* Danh sách kiểm tra (Testing checklist).
 
-Demo stability is more important than perfect architecture.
-
+Sự ổn định lúc demo quan trọng hơn một kiến trúc hoàn hảo.
