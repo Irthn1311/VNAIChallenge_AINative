@@ -1,3 +1,117 @@
+# AGENTS.md — VNAI Hackathon Starter
+
+> **Current phase: Preparation and documentation only.**
+> No real app code exists yet. Do not scaffold Next.js, FastAPI, Supabase, or any application code until the team explicitly switches to implementation phase.
+
+---
+
+## What This Repo Is
+
+A preparation kit for **Vietnam AI Innovation Challenge 2026** — a 4-person student hackathon team.
+
+The repo contains documentation, API contracts, module contracts, and AI context packs. It is **not a scaffolded application**.
+
+- `apps/web/` — placeholder directory for a planned Next.js frontend; contains only a README, no app code
+- `apps/api/` — placeholder directory for a planned FastAPI backend; contains only a README, no app code
+
+---
+
+## Planned Stack (not yet implemented)
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js + Tailwind CSS + shadcn/ui |
+| Backend | FastAPI (Python) |
+| Database | Supabase PostgreSQL + pgvector |
+| Deploy | Vercel (frontend), Railway or Render (backend) |
+
+---
+
+## High-Value Sources of Truth
+
+Read these first before making any changes:
+
+| File | Purpose |
+|---|---|
+| `README.md` | Repo overview, rules, onboarding order |
+| `CLAUDE.md` | Claude-specific agent rules and GitNexus guidance |
+| `ai-context/PROJECT_CONTEXT.md` | Current phase, product patterns, architecture intent |
+| `ai-context/MODULE_MAP.md` | Module owners, paths, integration points |
+| `ai-context/CODING_RULES.md` | Rules for preparation and implementation phases |
+| `ai-context/AGENTS.md` | Detailed agent rules (before/after editing checklists) |
+| `docs/architecture.md` | Planned system architecture |
+| `docs/api-contract.md` | All planned API endpoints with request/response schemas |
+| `docs/team-workflow.md` | Branch, PR, and review process |
+| `docs/tool-stack-decision.md` | Rationale for tech choices |
+
+Context packs per module: `ai-context/context-packs/`
+
+---
+
+## Planned API Endpoints (all status: Planned — no backend code exists)
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /health` | Liveness check |
+| `POST /api/chat` | Chat with RAG, returns answer + sources |
+| `POST /api/upload` | Upload document for RAG |
+| `POST /api/report` | Generate summary/report from uploaded data |
+| `POST /api/analyze-image` | OCR/CV analysis (optional module) |
+
+Full schemas in `docs/api-contract.md`. Do not deviate from documented schemas.
+
+---
+
+## Module Owners
+
+| Module | Owner | Context Pack |
+|---|---|---|
+| Frontend UI (`apps/web`) | Nguyễn Tuấn Tài | `ai-context/context-packs/frontend-ui.md` |
+| Backend API (`apps/api`) | Nguyễn Tuấn Tài | `ai-context/context-packs/backend-api.md` |
+| Chat RAG | Lư Hồng Phúc | `ai-context/context-packs/chat-rag.md` |
+| Upload Document | Nguyễn Tuấn Tài | `ai-context/context-packs/upload-document.md` |
+| CV / OCR | Lư Hồng Phúc | `ai-context/context-packs/cv-ocr.md` |
+| Report / Demo Flow | Lê Thanh Phát | `ai-context/context-packs/demo-flow.md` |
+
+Technical Lead / Integration: Nguyễn Hữu Tri
+
+---
+
+## AI Coding Workflow Tools (verified in repo)
+
+- **Repomix** — packages codebase as context for AI tools. Config: `repomix.config.json`. Output: `repomix-output.md`.
+- **GitNexus** — code intelligence, call graph, impact analysis. Index: `.gitnexus/`. Refreshing: `node .gitnexus/run.cjs analyze` or `npx gitnexus analyze`.
+- **CodeGraph** — structural code understanding. Guide: `docs/tools/codegraph-guide.md`.
+
+Workflow guide: `docs/tools/codebase-context-workflow.md`
+
+---
+
+## Core Rules for AI Sessions
+
+1. Check the current phase first (`ai-context/PROJECT_CONTEXT.md`).
+2. Identify the affected module and its owner (`ai-context/MODULE_MAP.md`).
+3. Read the relevant context pack before making changes.
+4. Do not deviate from `docs/api-contract.md` without updating it.
+5. Do not install packages, scaffold apps, or create routes during preparation phase.
+6. Do not hard-code secrets, tokens, or API keys.
+7. Do not break demo-critical flows.
+8. After editing: report changed files, summary, how to review, and any risks.
+
+---
+
+## Priorities (hackathon order)
+
+1. Working demo
+2. Stable frontend ↔ backend integration
+3. Clear user flow
+4. Simple code
+5. Documentation accuracy
+
+Do not over-engineer.
+
+---
+
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
@@ -23,7 +137,7 @@ This project is indexed by GitNexus as **VNAIChallenge_AINative** (532 symbols, 
 ## Resources
 
 | Resource | Use for |
-|----------|---------|
+|----------|---------| 
 | `gitnexus://repo/VNAIChallenge_AINative/context` | Codebase overview, check index freshness |
 | `gitnexus://repo/VNAIChallenge_AINative/clusters` | All functional areas |
 | `gitnexus://repo/VNAIChallenge_AINative/processes` | All execution flows |
